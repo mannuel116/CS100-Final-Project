@@ -7,30 +7,30 @@
  \<[Maazin Zubair](https://github.com/Maazin-Zubair)\>
 
 ## Project Description
- > * Why is it important or interesting to you?
- >   * We found this project to be interesting because it allows us to think of different ways to code RPG elements from games we’ve played previously into our own program while also letting us implement creative decisions beyond programming such as story and world building. Since most RPGs revolve around the mage, tank, adventurer, etc, we decided to go beyond these usual tropes and instead use the world of Cyberpunk, specifically the Cyberpunk: Edgerunners show on Netflix, 
+  * Why is it important or interesting to you?
+    * We found this project to be interesting because it allows us to think of different ways to code RPG elements from games we’ve played previously into our own program while also letting us implement creative decisions beyond programming such as story and world building. Since most RPGs revolve around the mage, tank, adventurer, etc, we decided to go beyond these usual tropes and instead use the world of Cyberpunk, specifically the Cyberpunk: Edgerunners show on Netflix, 
  as the basis for our game.
  
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * VSCode
- >   * C++
- >   * Github
- >   * Git
+  * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
+    * VSCode
+    * C++
+    * Github
+    * Git
 
- > * What will be the input/output of your project?
- >   * In this project,  we will be developing a text-based rpg that incorporates narrative with strategy by pushing the player through difficult scenarios that build their character’s story. We will use text-based input for all controls, similar to inputting commands in a console, meaning the only peripherals a player needs is a keyboard. In the end, the goal of the player should be to make it as far as possible or toward a satisfactory ending for their playthrough. 
+  * What will be the input/output of your project?
+    * In this project,  we will be developing a text-based rpg that incorporates narrative with strategy by pushing the player through difficult scenarios that build their character’s story. We will use text-based input for all controls, similar to inputting commands in a console, meaning the only peripherals a player needs is a keyboard. In the end, the goal of the player should be to make it as far as possible or toward a satisfactory ending for their playthrough. 
 
- > * What are the features that the project provides?
- >   * Narrative
- >       * Scenarios that the player will encounter and make a decision in
- >       * Character selection
- >   * Data Storage:
- >       * Saving checkpoints
- >       * Health
- >       * Inventory:
- >         * Items such as equipment
- >   * Command line
- >       * Allows the player to control their character and access menus/information they will need
+  * What are the features that the project provides?
+    * Narrative
+        * Scenarios that the player will encounter and make a decision in
+        * Character selection
+    * Data Storage:
+        * Saving checkpoints
+        * Health
+        * Inventory:
+          * Items such as equipment
+    * Command line
+        * Allows the player to control their character and access menus/information they will need
  
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to:
