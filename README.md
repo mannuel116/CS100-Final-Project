@@ -8,7 +8,7 @@
 
 ## Project Description
  > * Why is it important or interesting to you?
-     We found this project to be interesting because it allows us to think of different ways to code RPG elements from games we’ve played previously into our own program while also letting us implement creative decisions beyond programming such as story and world building. Since most RPGs revolve around the mage,  
+ >   * We found this project to be interesting because it allows us to think of different ways to code RPG elements from games we’ve played previously into our own program while also letting us implement creative decisions beyond programming such as story and world building. Since most RPGs revolve around the mage,  
  tank, adventurer, etc, we decided to go beyond these usual tropes and instead use the world of Cyberpunk, specifically the Cyberpunk: Edgerunners show on Netflix, 
  as the basis for our game.
  
