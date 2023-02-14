@@ -36,7 +36,8 @@
 Image goes here
 ![This is an image](https://github.com/cs100/final-project-chonkers/blob/cf069b72cd76d0ab223e848a00ddfec7e6f46ae5/README_Images/CS100_Project_Diagram.png)
 
-CS100 – Project Class Diagram Description
+**CS100 – Project Class Diagram Description**
+
 **1.	Interface**
 
 The *Interface* class is what our player will see when first running the program. In it, they will be asked to select an option such as starting a new game, loading a saved game, save their current game when given the chance, and the option to quit. The interface will be used when the program is first ran, but also throughout the game whenever the player wants to “pause” their current game and access these options again.
