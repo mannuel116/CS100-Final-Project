@@ -34,6 +34,7 @@
  
 ## Class Diagram
 Image goes here
+![This is an image](https://github.com/cs100/final-project-chonkers/blob/752923233ddf2f7123590dfefa8af3e50341ac4c/CS100_Project_Diagram.pdf)
 
 CS100 – Project Class Diagram Description
 **1.	Interface**
