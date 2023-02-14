@@ -33,8 +33,7 @@
         * Allows the player to control their character and access menus/information they will need
  
 ## Class Diagram
-Image goes here
-![This is an image](https://github.com/cs100/final-project-chonkers/blob/cf069b72cd76d0ab223e848a00ddfec7e6f46ae5/README_Images/CS100_Project_Diagram.png)
+![Class Diagram](https://github.com/cs100/final-project-chonkers/blob/cf069b72cd76d0ab223e848a00ddfec7e6f46ae5/README_Images/CS100_Project_Diagram.png)
 
 ## **CS100 – Project Class Diagram Description**
 
