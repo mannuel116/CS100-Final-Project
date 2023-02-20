@@ -11,6 +11,13 @@ class Entity : EntityData {
         string name;
 
     public:
+        enum class Kind {
+            Human,
+            // Other races go here:
+            // Sushi,
+            // Pizza hut,
+            // help
+        };
 
         void setName(string name){
             this->name = name;

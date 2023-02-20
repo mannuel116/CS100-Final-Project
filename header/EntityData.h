@@ -6,17 +6,16 @@
 using namespace std;
 
 class EntityData {
-    private:
     /*
-        All data types must be set by derived class
+            All data types must be set by derived class.
     */
+    private:
         double currentHealth;       // done
         double maxHealth;           // done
-        double experience = 0;
-        double armor;
+        double armor;               // done
         int level = 0;
-        string h;
-        
+        double experience = 0;
+
     public:
         void setMaxHealth(double hp){
             currentHealth = maxHealth = hp;
@@ -53,10 +52,17 @@ class EntityData {
                 - Experience needs to carry over to next level when player has enough to level up.
                     -> can be done by checking if experience > requiredXPForLvlUP, then add 1 level and experience - requiredXPForLvlUP
                 - Does it make sense to handle levelling up in the addExperience function, or have a seperate LevelUp function that checks and handles the above
+                
+            Idea:
+                - Experience can be [0,1] range. Experience gained can be through percentages:
+                    -> Early on mobs give about 20%-40% experience. (2.5-5 mobs/events average for levelup)
+                    -> Later on experience can be given in 15%-30%. (3.33-6.66 mobs/events average for levelup)
         */
         void addExperience(double xp){ 
             double tempXP = experience;
-            //currentHealth = 
+
+            // Levelup function goes here
+
         }
 
         double Experience(){
@@ -78,6 +84,18 @@ class EntityData {
         // bool LevelUp(){
         //     if()
         // }
+
+        void setArmor(double _armor){
+            armor = _armor;
+        }
+
+        double armor(){
+            return armor;
+        }
+
+        void addArmor(double _armor){      
+            armor += _armor;
+        }
 
         
 };
