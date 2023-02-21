@@ -2,39 +2,40 @@
 #define ENTITY_H
 #include <stdint.h>
 #include <string>
+#include "../source/EntityData.cpp"
 
 using namespace std;
 
-class Entity : EntityData {
-    private:
-        string race;
-        string name;
-
+class Entity : public EntityData {
     public:
-        enum class Kind {
-            Human,
+        enum Path {
+            Corporate,
+            Nomad,
+            Street_Kid
             // Other races go here:
             // Sushi,
             // Pizza hut,
             // help
         };
 
-        void setName(string name){
-            this->name = name;
+        Entity(string _name, Path _origin, double startingHP, double startingArmor, int startingLevel){
+            name = _name;
+            origin = _origin;
+            SetMaxHealth(startingHP);
+            SetCurrentHealth(startingHP);
+            SetExperience(0.0);
+            SetLevel(startingLevel);
+            SetArmor(startingArmor);
+            
         }
 
-        string Name(){
-            return this->name;
-        }
-
-        void setRace(string race){
-            this->race = race;
-        }
-
-        string Race(){
-            return this->race;
-        }
-
+        void SetName(string name);
+        string Name();
+        void SetRace(string race);
+        string Race();
+    private:
+        Path origin;
+        string name;
 };
 
 
