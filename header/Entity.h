@@ -1,8 +1,16 @@
+/*
+    Author: Justin Dang
+    >--------------------------------------------
+    FUNCTION:
+    
+        -> Handles storing and modifying data and stats of an entity.
+    >--------------------------------------------
+*/
 #ifndef ENTITY_H
 #define ENTITY_H
 #include <stdint.h>
 #include <string>
-#include "../source/EntityData.cpp"
+#include "../header/EntityData.h"
 
 using namespace std;
 
@@ -18,7 +26,7 @@ class Entity : public EntityData {
             // help
         };
 
-        Entity(string _name, Path _origin, double startingHP, double startingArmor, int startingLevel){
+        Entity(string _name, Path _origin, double startingHP = 0, double startingArmor = 0, int startingLevel = 0){
             name = _name;
             origin = _origin;
             SetMaxHealth(startingHP);
@@ -26,13 +34,12 @@ class Entity : public EntityData {
             SetExperience(0.0);
             SetLevel(startingLevel);
             SetArmor(startingArmor);
-            
         }
 
         void SetName(string name);
         string Name();
-        void SetRace(string race);
-        string Race();
+        void SetOrigin(Path path);
+        Path Origin();
     private:
         Path origin;
         string name;

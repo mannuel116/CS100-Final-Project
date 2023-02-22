@@ -1,6 +1,10 @@
 #include "gtest/gtest.h"
 #include "../header/Entity.h"
 
+/*
+    Add Entity Class test cases here:
+*/
+
 TEST(Entity, testSetCurrentHealthAboveMaxHP){
     Entity *player = new Entity("Justin", Entity::Path::Corporate, 30, 8, 5);
     player->SetCurrentHealth(999999);

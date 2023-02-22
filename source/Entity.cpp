@@ -1,5 +1,7 @@
 #include "../header/Entity.h"
 
+using namespace std;
+
 void Entity::SetName(string name){
      this->name = name;
 }
@@ -8,10 +10,10 @@ string Entity::Name(){
     return this->name;
 }
 
-void Entity::SetRace(string race){
-    this->race = race;
+void Entity::SetOrigin(Path path){
+    this->origin = path;
 }
 
-string Entity::Race(){
-    return this->race;
+Entity::Path Entity::Origin(){
+    return this->origin;
 }

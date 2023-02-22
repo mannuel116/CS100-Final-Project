@@ -1,3 +1,11 @@
+/*
+    Author: Justin Dang
+    >--------------------------------------------
+    FUNCTION:
+    
+        -> Handles storing and modifying data and stats of an entity.
+    >--------------------------------------------
+*/
 #ifndef ENTITYDATA_H
 #define ENTITYDATA_H
 #include <string>
@@ -10,8 +18,8 @@ class EntityData {
         double currentHealth;       // done
         double maxHealth;           // done
         double armor;               // done
-        int level;
-        double experience;
+        int level;                  // done
+        double experience;          // done
 
     public:
         // Health functions:
