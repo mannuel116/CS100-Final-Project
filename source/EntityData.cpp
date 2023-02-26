@@ -5,7 +5,8 @@
 using namespace std;
 
 void EntityData::SetMaxHealth(double hp){
-    currentHealth = maxHealth = hp;
+    currentHealth = maxHealth = max(hp, 0.0);
+    UpdateData();
 }
 
 double EntityData::MaxHealth(){
@@ -15,6 +16,7 @@ double EntityData::MaxHealth(){
 void EntityData::AddMaxHealth(double hp){       // Should increasing MaxHP increase currentHP?
     maxHealth += hp;
     // currentHealth += hp;
+    UpdateData();
 }
 
 void EntityData::SetCurrentHealth(double hp){
@@ -24,6 +26,8 @@ void EntityData::SetCurrentHealth(double hp){
     else if(hp < 0){
         currentHealth = max(hp, 0.0);
     }
+
+    UpdateData();
 }
 
 void EntityData::AddCurrentHealth(double hp){ 
@@ -34,6 +38,8 @@ void EntityData::AddCurrentHealth(double hp){
     else if(hp < 0){
         currentHealth = max(tempHP + hp, 0.0);
     }
+
+    UpdateData();
 }
 
 double EntityData::CurrentHealth(){
@@ -41,11 +47,12 @@ double EntityData::CurrentHealth(){
 }
 void EntityData::SetExperience(double xp){
     experience = max(xp, 0.0);
+    UpdateData();
 }
 
 void EntityData::AddExperience(double xp){ 
     if(level == 0 && xp <= 0.0){
-        return;
+        return;                             // stops player from going below level 0
     }
 
     experience += xp;
@@ -56,6 +63,8 @@ void EntityData::AddExperience(double xp){
     else if(CanLevelDown()){
         LevelDown();
     }
+
+    UpdateData();
 }
 
 double EntityData::Experience(){
@@ -64,10 +73,12 @@ double EntityData::Experience(){
 
  void EntityData::SetLevel(int lvl){
     level = max(0, lvl);
+    UpdateData();
 }
 void EntityData::AddLevel(int lvl){ 
     int tempLvl = level;
     level = max(0, tempLvl + lvl);
+    UpdateData();
 }
 
 double EntityData::Level(){
@@ -102,6 +113,7 @@ void EntityData::LevelDown(){
 
 void EntityData::SetArmor(double _armor){
     armor = max(_armor, 0.0);
+    UpdateData();
 }
 
 double EntityData::Armor(){
@@ -111,4 +123,13 @@ double EntityData::Armor(){
 void EntityData::AddArmor(double _armor){   
     double tempArmor = armor;   
     armor = max(tempArmor + _armor, 0.0);
+    UpdateData();
+}
+
+void EntityData::UpdateData(){
+    data.level = level;
+    data.experience = experience;
+    data.currentHealth = currentHealth;
+    data.maxHealth = maxHealth;
+    data.armor = armor;
 }

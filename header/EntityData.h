@@ -9,43 +9,69 @@
 #ifndef ENTITYDATA_H
 #define ENTITYDATA_H
 #include <string>
+#include <algorithm>
+
+using namespace std;
+
+struct entityData {
+    int level;
+    double currentHealth, maxHealth, armor, experience = 0;
+};
 
 class EntityData {
-    /*
-            All data types must be set by derived class.
-    */
     private:
-        double currentHealth;       // done
-        double maxHealth;           // done
-        double armor;               // done
-        int level;                  // done
-        double experience;          // done
+        int level;                  
+        double experience;          
+        double currentHealth;      
+        double maxHealth;           
+        double armor;     
+        entityData data;          
 
     public:
+        // (int _level, double _experience, double _currentHealth, double _maxHealth, double _armor)
+        EntityData(entityData _data){
+            this->level = max(_data.level, 0);
+            this->experience = max(_data.experience, 0.0);
+            this->currentHealth = max(_data.currentHealth, 0.0);
+            this->maxHealth = max(_data.maxHealth, 0.0);
+            this->armor = max(_data.armor, 0.0);
+            data = { this->level, this->currentHealth, this->maxHealth, this->armor , this->experience};
+        }
+        EntityData( int _level = 0, double _currentHealth = 0.0, double _maxHealth = 0.0, double _armor = 0.0,  double _experience = 0.0){
+            this->level = max(_level, 0);
+            this->experience = max(_experience, 0.0);
+            this->currentHealth = max(_currentHealth, 0.0);
+            this->maxHealth = max(_maxHealth, 0.0);
+            this->armor = max(_armor, 0.0);
+            //data = { this->level, this->currentHealth, this->maxHealth, this->armor, this->experience};
+        }
+
         // Health functions:
-        void SetMaxHealth(double hp);
         double MaxHealth();
+        void SetMaxHealth(double hp);
         void AddMaxHealth(double hp);
+        double CurrentHealth();
         void SetCurrentHealth(double hp);
         void AddCurrentHealth(double hp);
-        double CurrentHealth();
 
         // Experience/Level functions
+        double Experience();
         void SetExperience(double xp);
         void AddExperience(double xp);
-        double Experience();
+        double Level();
         void SetLevel(int lvl);
         void AddLevel(int lvl);
-        double Level();
         bool CanLevelUp();
         void LevelUp();
         bool CanLevelDown();
         void LevelDown();
 
         // Armor functions
-        void SetArmor(double _armor);
         double Armor();
+        void SetArmor(double _armor);
         void AddArmor(double _armor);
+
+        void UpdateData();
 };
 
 #endif
