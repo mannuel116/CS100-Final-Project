@@ -15,7 +15,7 @@ bool CombatEV::chckAgl(Entity player, Enemy enemy) {
         return false;     //player is slower than enemy
     }
 }
-void CombatEV::fight(Entity first, Enemy second) {
+void CombatEV::fight(Entity first, Enemy second) { //implement next sprint
     /*
         bool fight = true;
         int dmg = 0;
@@ -25,7 +25,5 @@ void CombatEV::fight(Entity first, Enemy second) {
                 second.setHP(dmg);
 
         }
-    
-    
     */
 }
