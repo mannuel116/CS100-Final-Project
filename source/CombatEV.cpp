@@ -2,19 +2,18 @@
 #include "../header/combatev.h"
 
 void CombatEV::runEvent(Entity player, Enemy enemy) {
-    /*
-        if (chckAgl(player,enemy))
-            fight(player,enemy);
-        else
-            fight(enemy,player);
-    */
+    if (chckAgl(player, enemy)){
+        fight(player, enemy);
+    }else{
+        fight(enemy, player);
+    }
 }
 bool CombatEV::chckAgl(Entity player, Enemy enemy) {
-    /*
-        if (player's agility is > enemies agility)
-            return true
-        return false; player is slower than enemy
-    */
+    if(player.Agility() > enemy.Agility()){
+        return true;       //player is faster than enemy
+    }else{
+        return false;     //player is slower than enemy
+    }
 }
 void CombatEV::fight(Entity first, Enemy second) {
     /*
