@@ -7,8 +7,8 @@
     >--------------------------------------------
     Documentation:
         - Constructor:
-            -> EntityData(struct entityData)
-            -> EntityData(int _level = 0, 
+            -> CharacterData(struct entityData)
+            -> CharacterData(int _level = 0, 
                             double _currentHealth = 0.0, 
                             double _maxHealth = 0.0, 
                             double _armor = 0.0,  
@@ -16,7 +16,7 @@
                 - Side note for above constructor:
                     -> I left experience at the end to all for the constructor to be
                         called as so:
-                            EntityData(level, health, health, armor);
+                            CharacterData(level, health, health, armor);
                         Can omit experience and it will be set to 0.
 
         - Variables:
@@ -39,26 +39,26 @@
                 -> Can add or subtract a given amount from the given variable.
     >--------------------------------------------
 */
-#ifndef ENTITYDATA_H
-#define ENTITYDATA_H
+#ifndef CHARACTERDATA_H
+#define CHARACTERDATA_H
 #include <string>
 #include <algorithm>
 
 using namespace std;
 
-struct entityData {
+struct characterData {
     int level;
     double currentHealth, maxHealth, armor, experience = 0;
 };
 
-class EntityData {
+class CharacterData {
     private:
         int level;                  
         double experience;          
         double currentHealth;      
         double maxHealth;           
         double armor;     
-        entityData data;    
+        characterData data;    
 
         // Helper functions
         bool CanLevelUp();
@@ -67,9 +67,15 @@ class EntityData {
         void LevelDown();   
         void UpdateData();   
 
+        /*
+        >--------------------------------------------
+        Add inventory here
+        >--------------------------------------------
+        */
+
     public:
         // (int _level, double _experience, double _currentHealth, double _maxHealth, double _armor)
-        EntityData(entityData _data){
+        CharacterData(characterData _data){
             this->level = max(_data.level, 0);
             this->experience = max(_data.experience, 0.0);
             this->currentHealth = max(_data.currentHealth, 0.0);
@@ -77,7 +83,7 @@ class EntityData {
             this->armor = max(_data.armor, 0.0);
             data = { this->level, this->currentHealth, this->maxHealth, this->armor , this->experience};
         }
-        EntityData( int _level = 0, double _currentHealth = 0.0, double _maxHealth = 0.0, double _armor = 0.0,  double _experience = 0.0){
+        CharacterData( int _level = 0, double _currentHealth = 0.0, double _maxHealth = 0.0, double _armor = 0.0,  double _experience = 0.0){
             this->level = max(_level, 0);
             this->experience = max(_experience, 0.0);
             this->currentHealth = max(_currentHealth, 0.0);

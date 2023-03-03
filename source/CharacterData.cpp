@@ -1,25 +1,25 @@
-#include "../header/EntityData.h"
+#include "../header/CharacterData.h"
 #include <algorithm>
 #include <string>
 
 using namespace std;
 
-void EntityData::SetMaxHealth(double hp){
+void CharacterData::SetMaxHealth(double hp){
     currentHealth = maxHealth = max(hp, 0.0);
     UpdateData();
 }
 
-double EntityData::MaxHealth(){
+double CharacterData::MaxHealth(){
     return maxHealth;
 }
 
-void EntityData::AddMaxHealth(double hp){       // Should increasing MaxHP increase currentHP?
+void CharacterData::AddMaxHealth(double hp){       // Should increasing MaxHP increase currentHP?
     maxHealth += hp;
     // currentHealth += hp;
     UpdateData();
 }
 
-void EntityData::SetCurrentHealth(double hp){
+void CharacterData::SetCurrentHealth(double hp){
     if(hp > 0){
         currentHealth = min(hp, maxHealth);
     }
@@ -30,7 +30,7 @@ void EntityData::SetCurrentHealth(double hp){
     UpdateData();
 }
 
-void EntityData::AddCurrentHealth(double hp){ 
+void CharacterData::AddCurrentHealth(double hp){ 
     double tempHP = currentHealth;
     if(hp > 0){
         currentHealth = min(tempHP + hp, maxHealth);
@@ -42,15 +42,15 @@ void EntityData::AddCurrentHealth(double hp){
     UpdateData();
 }
 
-double EntityData::CurrentHealth(){
+double CharacterData::CurrentHealth(){
     return currentHealth;
 }
-void EntityData::SetExperience(double xp){
+void CharacterData::SetExperience(double xp){
     experience = max(xp, 0.0);
     UpdateData();
 }
 
-void EntityData::AddExperience(double xp){ 
+void CharacterData::AddExperience(double xp){ 
     if(level == 0 && xp <= 0.0){
         return;                             // stops player from going below level 0
     }
@@ -67,66 +67,66 @@ void EntityData::AddExperience(double xp){
     UpdateData();
 }
 
-double EntityData::Experience(){
+double CharacterData::Experience(){
     return experience;
 }
 
- void EntityData::SetLevel(int lvl){
+ void CharacterData::SetLevel(int lvl){
     level = max(0, lvl);
     UpdateData();
 }
-void EntityData::AddLevel(int lvl){ 
+void CharacterData::AddLevel(int lvl){ 
     int tempLvl = level;
     level = max(0, tempLvl + lvl);
     UpdateData();
 }
 
-double EntityData::Level(){
+double CharacterData::Level(){
     return level;
 }
 
-bool EntityData::CanLevelUp(){
+bool CharacterData::CanLevelUp(){
     if(experience >= 1)
        return true;
     return false;  
 }
 
-void EntityData::LevelUp(){
+void CharacterData::LevelUp(){
     while(CanLevelUp()){
         experience -= 1.0;
         level += 1;
     }
 }
 
-bool EntityData::CanLevelDown(){
+bool CharacterData::CanLevelDown(){
     if(experience < 0 && level > 0)
        return true;
     return false;  
 }
 
-void EntityData::LevelDown(){
+void CharacterData::LevelDown(){
     while(CanLevelDown()){
         experience += 1.0;
         level -= 1;
     }
 }
 
-void EntityData::SetArmor(double _armor){
+void CharacterData::SetArmor(double _armor){
     armor = max(_armor, 0.0);
     UpdateData();
 }
 
-double EntityData::Armor(){
+double CharacterData::Armor(){
     return armor;
 }
 
-void EntityData::AddArmor(double _armor){   
+void CharacterData::AddArmor(double _armor){   
     double tempArmor = armor;   
     armor = max(tempArmor + _armor, 0.0);
     UpdateData();
 }
 
-void EntityData::UpdateData(){
+void CharacterData::UpdateData(){
     data.level = level;
     data.experience = experience;
     data.currentHealth = currentHealth;
