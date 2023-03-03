@@ -32,6 +32,7 @@
     * Command line
         * Allows the player to control their character and access menus/information they will need
  
+ 
 ## Class Diagram
 ![Class Diagram](https://github.com/cs100/final-project-chonkers/blob/dev/README_Images/CS100_Project_Diagram_P3.png)
 
