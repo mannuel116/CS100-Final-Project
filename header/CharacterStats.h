@@ -8,8 +8,8 @@
     >--------------------------------------------
     Documentation:
         - Constructor:
-            -> EntityStats(struct entityData)
-            -> EntityStats(int vitality = 0, 
+            -> CharacterStats(struct characterData)
+            -> CharacterStats(int vitality = 0, 
                             int strength = 0, 
                             int agility = 0, 
                             int compatibility = 0, 
@@ -20,14 +20,15 @@
             -> agility
             -> compatibility
             -> luck
-            - entityStats
+            -> psychosis
+            - characterStats
                 -> Struct that contain all data as so { int vitality, strength, agility, compatibility, luck; };
         - Methods:
             - NOTE:
                 Variables are lower case; to get the variable, just change
                 it to uppercase and call method
-                    ex. To get entity level:
-                        int entityLevel = entity.Level();
+                    ex. To get character level:
+                        int characterLevel = character.Level();
             - <Variable>() 
                 -> returns the variable.
             - Set<Variable>()
@@ -43,21 +44,22 @@
 
 using namespace std;
 
-struct entityStats{
+struct characterStats{
     int vitality, strength, agility, compatibility, luck;
 };
 
-class EntityStats{
+class CharacterStats{
     private:
         int vitality;
         int strength;
         int agility;
         int compatibility;
         int luck;
-        entityStats stats;
+        int psychosis;
+        characterStats stats;
 
     public:
-        EntityStats(entityStats _stats){
+        CharacterStats(characterStats _stats){
             this->vitality = max(_stats.vitality, 0);
             this->strength = max(_stats.strength, 0);
             this->agility = max(_stats.agility, 0);
@@ -65,7 +67,7 @@ class EntityStats{
             this->luck = max(_stats.luck, 0);
             stats = { this->vitality, this->strength, this->agility, this->compatibility, this->luck };
         }
-        EntityStats(int _vitality = 0, int _strength = 0, int _agility = 0, int _compatibility = 0, int _luck = 0){
+        CharacterStats(int _vitality = 0, int _strength = 0, int _agility = 0, int _compatibility = 0, int _luck = 0){
             this->vitality = max(_vitality, 0);
             this->strength = max(_strength, 0);
             this->agility = max(_agility, 0);
@@ -97,6 +99,11 @@ class EntityStats{
         int Luck();
         void SetLuck(int _Luck);
         void AddLuck(int _Luck);
+
+        // Psychosis
+        int Psychosis();
+        void SetPsychosis(int _Luck);
+        void AddPsychosis(int _Luck);
 };
 
 #endif
