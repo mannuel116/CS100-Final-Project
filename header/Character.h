@@ -6,26 +6,20 @@
     >--------------------------------------------
     FUNCTION:
         -> Handles storing and modifying data and stats of an character.
-        -> Use Case:
-            -> Can create enemies without having to give them stats
-                -> If you want to give the enemy stats, the enemy class should inherit from EnemyStats.h
-            -> Can create non-interactable(No need for data other than name and origin) npc, but class was 
-               developed with intention that we most likely will be interacting with most entities.
     >--------------------------------------------
     Documentation:
         - Constructor:
             -> Character(string name, Path origin, struct characterData)
             -> Character(string name, 
                             Path origin,
-                            int _level = 0, 
-                            double _health = 0.0, 
-                            double _armor = 0.0,  
-                            double _experience = 0.0)
+                            int _level = 0, double _health = 0.0, double _armor = 0.0, double _experience = 0.0
+                            int _vitality = 0, int _strength = 0, int _agility = 0, int _compatibility = 0, int _luck = 0, int _psychosis = 0)
                 - Side note for above constructor:
                     -> I left experience at the end to all for the constructor to be
                         called as so:
                             Character(name, path/race, level, health, armor);
                         Can omit experience and it will be set to 0.
+                        You'll have to include the 0 if you want to include stats though.
                     -> Path is similar to a race. Up for iteration if need be.
 
         - Variables:
@@ -36,6 +30,21 @@
             -> currentHealth
             -> maxHealth
             -> armor
+            -> characterData { 
+                int level;
+                double currentHealth, maxHealth, armor, experience = 0
+                }
+            -> Struct that contain all data just here if developer wishes to 
+                handle data differently
+            -> vitality
+            -> strength
+            -> agility
+            -> compatibility
+            -> luck
+            -> psychosis
+            - characterStats { int vitality, strength, agility, compatibility, luck, psychosis }
+            -> Struct that contain all data just here if developer wishes to 
+                handle data differently
         - Methods:
             - NOTE:
                 Variables are lower case; to get the variable, just change
@@ -72,7 +81,7 @@ class Character : public CharacterData, public CharacterStats{
             // Other races go here:
             // Sushi,
             // Pizza hut,
-            // help
+            // helpme.exe
         };
         /*
         (string name, Path origin, 

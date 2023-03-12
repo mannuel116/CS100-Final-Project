@@ -2,12 +2,11 @@
     Author: Justin Dang
     >--------------------------------------------
     FUNCTION:
-    
-        -> Handles storing and modifying data and stats of an entity.
+        -> Handles storing and modifying data and stats of an character.
     >--------------------------------------------
     Documentation:
         - Constructor:
-            -> CharacterData(struct entityData)
+            -> CharacterData(struct characterData)
             -> CharacterData(int _level = 0, 
                             double _currentHealth = 0.0, 
                             double _maxHealth = 0.0, 
@@ -25,12 +24,18 @@
             -> currentHealth
             -> maxHealth
             -> armor
+            -> characterData { 
+                int level;
+                double currentHealth, maxHealth, armor, experience = 0
+                }
+            -> Struct that contain all data just here if developer wishes to 
+                handle data differently
         - Methods:
             - NOTE:
                 Variables are lower case; to get the variable, just change
                 it to uppercase and call method
-                    ex. To get entity level:
-                        int entityLevel = entity.Level();
+                    ex. To get character level:
+                        int characterLevel = character.Level();
             - <Variable>() 
                 -> returns the variable.
             - Set<Variable>()
@@ -46,6 +51,10 @@
 
 using namespace std;
 
+/* 
+int level;
+double currentHealth, maxHealth, armor, experience = 0
+*/
 struct characterData {
     int level;
     double currentHealth, maxHealth, armor, experience = 0;

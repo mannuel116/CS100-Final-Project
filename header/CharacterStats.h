@@ -2,9 +2,7 @@
     Author: Justin Dang
     >--------------------------------------------
     FUNCTION:
-    
-        -> Handles storing and modifying stats for a player character, and
-            if need be, as well as enemies.
+        -> Handles storing and modifying stats for a player character.
     >--------------------------------------------
     Documentation:
         - Constructor:
@@ -13,7 +11,8 @@
                             int strength = 0, 
                             int agility = 0, 
                             int compatibility = 0, 
-                            int luck = 0)
+                            int luck = 0
+                            int psychosis = 0)
         - Variables:
             -> vitality
             -> strength
@@ -21,8 +20,9 @@
             -> compatibility
             -> luck
             -> psychosis
-            - characterStats
-                -> Struct that contain all data as so { int vitality, strength, agility, compatibility, luck; };
+            - characterStats { int vitality, strength, agility, compatibility, luck }
+                -> Struct that contain all data just here if developer wishes to 
+                    handle data differently
         - Methods:
             - NOTE:
                 Variables are lower case; to get the variable, just change
