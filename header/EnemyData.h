@@ -2,6 +2,7 @@
 #define ENEMYDATA_H
 #include <string>
 #include <algorithm>
+class Weapon;
 
 using namespace std;
 

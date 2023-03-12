@@ -44,6 +44,7 @@
 
 using namespace std;
 
+// int vitality, strength, agility, compatibility, luck, psychosis
 struct characterStats{
     int vitality, strength, agility, compatibility, luck, psychosis;
 };
@@ -68,15 +69,17 @@ class CharacterStats{
             this->agility = max(_stats.agility, 0);
             this->compatibility = max(_stats.compatibility, 0);
             this->luck = max(_stats.luck, 0);
-            stats = { this->vitality, this->strength, this->agility, this->compatibility, this->luck };
+            this->psychosis = max(_stats.psychosis, 0);
+            stats = { this->vitality, this->strength, this->agility, this->compatibility, this->luck, this->psychosis };
         }
-        CharacterStats(int _vitality = 0, int _strength = 0, int _agility = 0, int _compatibility = 0, int _luck = 0){
+        CharacterStats(int _vitality = 0, int _strength = 0, int _agility = 0, int _compatibility = 0, int _luck = 0, int _psychosis = 0){
             this->vitality = max(_vitality, 0);
             this->strength = max(_strength, 0);
             this->agility = max(_agility, 0);
             this->compatibility = max(_compatibility, 0);
             this->luck = max(_luck, 0);
-            stats = { this->vitality, this->strength, this->agility, this->compatibility, this->luck };
+            this->psychosis = max(_psychosis, 0);
+            stats = { this->vitality, this->strength, this->agility, this->compatibility, this->luck, this->psychosis };
         }
         // Vitality
         int Vitality();

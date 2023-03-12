@@ -1,6 +1,7 @@
 #ifndef ENEMY_H
 #define ENEMY_H
-#include "../header/EntityStats.h"
+#include "../header/EnemyStats.h"
+#include "../header/EnemyData.h"
 #include <algorithm>
 #include <string>
 
@@ -16,7 +17,7 @@ class Enemy : public EnemyStats, public EnemyData {
             SetMaxHealth(startingHealth);
             setExp(xpDrop);
         }
-
+        
         void equipWeapon(string weaponName, float weaponDMG, float weaponCrit);
         Item getDrop();
 };

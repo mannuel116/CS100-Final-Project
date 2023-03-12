@@ -2,7 +2,7 @@
 #define CONSUMBALE_H
 
 #include <iostream>
-#include "item.h"
+#include "Item.h"
 
 using std::string;
 
@@ -12,7 +12,7 @@ class Consumable : public Item {
         string type;
     public:
         Consumable(string, string, float);
-        float useItem();
+        int useItem();
         void description();
 };
 

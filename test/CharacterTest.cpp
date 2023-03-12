@@ -11,6 +11,7 @@ TEST(CharacterTests, testConstructor){
     ASSERT_TRUE(player->Level() == 5);
     ASSERT_TRUE(player->CurrentHealth() == 30);
     ASSERT_TRUE(player->Armor() == 8);
+    
     delete player;
 }
 
@@ -26,7 +27,8 @@ TEST(CharacterTests, testConstructorWithInvalidInput){
 
 TEST(CharacterDataTests, testCharacterDataStruct){
     characterData tempData = {5, 30, 30, 8};
-    Character *player = new Character("Justin", Character::Path::Corporate, tempData);
+    characterStats tempStats = { 5, 5, 5, 5, 5, 5};
+    Character *player = new Character("Justin", Character::Path::Corporate, tempData, tempStats);
     ASSERT_TRUE(player->Name() == "Justin");
     ASSERT_TRUE(player->Origin() == Character::Path::Corporate);
     ASSERT_TRUE(player->Level() == 5);
@@ -37,7 +39,8 @@ TEST(CharacterDataTests, testCharacterDataStruct){
 
 TEST(CharacterDataTests, testCharacterDataStructWithInvalidInput){
     characterData tempData = {-3, -2, -1, 0};
-    Character *player = new Character("Justin", Character::Path::Corporate, tempData);
+    characterStats tempStats = { 5, 5, 5, 5, 5, 5};
+    Character *player = new Character("Justin", Character::Path::Corporate, tempData, tempStats);
     ASSERT_TRUE(player->Name() == "Justin");
     ASSERT_TRUE(player->Origin() == Character::Path::Corporate);
     ASSERT_TRUE(player->Level() == 0);

@@ -53,12 +53,17 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 #include "../header/CharacterData.h"
+#include "../header/CharacterStats.h"
+#include "../header/Inventory.h"
 #include <algorithm>
 #include <string>
 
 using namespace std;
 
-class Character : protected CharacterData {
+/*-------------------------------------
+    INCLUDE INVENTORY HERE ONCE IT IS IMPLMENETED(CONSUMABLE AND WEAPON NOT IMPLEMENTED YET)
+*///-----------------------------------
+class Character : public CharacterData, public CharacterStats{
     public:
         enum Path {
             Corporate,
@@ -69,33 +74,38 @@ class Character : protected CharacterData {
             // Pizza hut,
             // help
         };
-        // (string name, Path origin, struct characterData data)
-        Character(string _name, Path _origin, characterData _data){
+        /*
+        (string name, Path origin, 
+        characterData data(struct),
+        characterStats stats(struct))
+        */ 
+        Character(string _name, Path _origin, characterData _data, CharacterStats _stats) : 
+        CharacterData(_data), 
+        CharacterStats(_stats)
+        {
             name = _name;
             origin = _origin;
-            SetMaxHealth(_data.currentHealth);
-            SetCurrentHealth(_data.currentHealth);
-            SetExperience(_data.experience);
-            SetLevel(_data.level);
-            SetArmor(_data.armor);
         }
-        //(string name, Path origin, int level = 0, double startingHealth = 0, double startingArmor = 0, double startingExperience = 0) 
-        Character(string _name, Path _origin, int startingLevel = 0, double startingHP = 0.0, double startingArmor = 0.0, double startingExperience = 0.0){
+        /*
+        (string name, Path origin, 
+        int level, double startingHP, double startingArmor, double startingXP,
+        int vitality, int strength, int agility, int compatibility, int luck, int psychosis) 
+        */
+        Character(string _name, Path _origin,
+         int startingLevel = 0, double startingHP = 0.0, double startingArmor = 0.0, double startingExperience = 0.0,
+         int _vitality = 0, int _strength = 0, int _agility = 0, int _compatibility = 0, int _luck = 0, int _psychosis = 0) :
+         CharacterData(startingLevel, startingHP, startingArmor, startingExperience), 
+         CharacterStats(_vitality, _strength, _agility, _compatibility, _luck, _psychosis)
+        {
             name = _name;
             origin = _origin;
-            SetMaxHealth(startingHP);
-            SetCurrentHealth(startingHP);
-            SetExperience(startingExperience);
-            SetLevel(startingLevel);
-            SetArmor(startingArmor);
         }
-
 
         void SetName(string name);
         string Name();
         void SetOrigin(Path path);
         Path Origin();
-        virtual void Attack();
+        // virtual void Attack(); // Waiting on clarification for combat
     private:
         Path origin;
         string name;

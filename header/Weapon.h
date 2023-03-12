@@ -1,20 +1,21 @@
 #ifndef WEAPONS_H
 #define WEAPONS_H
 
-#include <iostream>
-#include "item.h"
+#include "Item.h"
+class Character;
+
 
 using std::string;
 
-class Weapons : public Item {
+class Weapon : public Item {
     private:
         float damage, crit;
     public:
-        Weapons(string, float, float);
+        Weapon(string, float, float);
         string getName();
-        float useItem(CharEntity);
+        float useItem(Character);
         float getDmg();
-        float doCrit(CharEntity);
+        float doCrit(Character);
         float getCrit();
         void description();
 };

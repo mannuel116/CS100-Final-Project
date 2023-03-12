@@ -67,12 +67,6 @@ class CharacterData {
         void LevelDown();   
         void UpdateData();   
 
-        /*
-        >--------------------------------------------
-        Add inventory here
-        >--------------------------------------------
-        */
-
     public:
         // (int _level, double _experience, double _currentHealth, double _maxHealth, double _armor)
         CharacterData(characterData _data){
@@ -83,13 +77,13 @@ class CharacterData {
             this->armor = max(_data.armor, 0.0);
             data = { this->level, this->currentHealth, this->maxHealth, this->armor , this->experience};
         }
-        CharacterData( int _level = 0, double _currentHealth = 0.0, double _maxHealth = 0.0, double _armor = 0.0,  double _experience = 0.0){
+        CharacterData( int _level = 0, double _maxHealth = 0.0, double _armor = 0.0,  double _experience = 0.0){
             this->level = max(_level, 0);
             this->experience = max(_experience, 0.0);
-            this->currentHealth = max(_currentHealth, 0.0);
+            this->currentHealth = max(_maxHealth, 0.0);
             this->maxHealth = max(_maxHealth, 0.0);
             this->armor = max(_armor, 0.0);
-            //data = { this->level, this->currentHealth, this->maxHealth, this->armor, this->experience};
+            data = { this->level, this->currentHealth, this->maxHealth, this->armor, this->experience};
         }
 
         // Health functions:

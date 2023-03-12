@@ -10,8 +10,8 @@ class Item {
         string name;
     public:
         Item(string n) {name = n;}
-        int useItem() = 0;
-        void description() = 0;
+        virtual int useItem() = 0;
+        virtual void description() = 0;
         string getName() {return name;}
 };
 

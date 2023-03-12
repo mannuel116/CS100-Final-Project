@@ -13,13 +13,16 @@
 */
 #ifndef INVENTORY_H
 #define INVENTORY_H
+class Weapon;
+class Consumable;
 #include <vector>
 
+using namespace std;
 
 class Inventory{
     protected:
-        // vector<Weapon> weapon_Inventory;
-        // vector<Consumable> consumable_Inventory;
-}
+        vector<Weapon> weapon_Inventory;
+        vector<Consumable> consumable_Inventory;
+};
 
 #endif
