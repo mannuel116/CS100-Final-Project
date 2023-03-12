@@ -58,7 +58,7 @@
 
 using namespace std;
 
-class Character : public CharacterData {
+class Character : protected CharacterData {
     public:
         enum Path {
             Corporate,

@@ -45,7 +45,7 @@
 using namespace std;
 
 struct characterStats{
-    int vitality, strength, agility, compatibility, luck;
+    int vitality, strength, agility, compatibility, luck, psychosis;
 };
 
 class CharacterStats{
@@ -57,6 +57,9 @@ class CharacterStats{
         int luck;
         int psychosis;
         characterStats stats;
+
+        // helper function
+        void UpdateData();
 
     public:
         CharacterStats(characterStats _stats){
