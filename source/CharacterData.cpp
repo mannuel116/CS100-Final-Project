@@ -15,17 +15,12 @@ double CharacterData::MaxHealth(){
 
 void CharacterData::AddMaxHealth(double hp){       // Should increasing MaxHP increase currentHP?
     maxHealth += hp;
-    // currentHealth += hp;
+    currentHealth += hp;
     UpdateData();
 }
 
 void CharacterData::SetCurrentHealth(double hp){
-    if(hp > 0){
-        currentHealth = min(hp, maxHealth);
-    }
-    else if(hp < 0){
-        currentHealth = max(hp, 0.0);
-    }
+    currentHealth = max(hp, 0.0);
 
     UpdateData();
 }
@@ -45,23 +40,26 @@ void CharacterData::AddCurrentHealth(double hp){
 double CharacterData::CurrentHealth(){
     return currentHealth;
 }
+
 void CharacterData::SetExperience(double xp){
-    experience = max(xp, 0.0);
+    experience = min(max(xp, 0.0), .99999);
     UpdateData();
 }
 
-void CharacterData::AddExperience(double xp){ 
+bool CharacterData::AddExperience(double xp){ 
     if(level == 0 && xp <= 0.0){
-        return;                             // stops player from going below level 0
+        return false;                             // stops player from going below level 0
     }
 
     experience += xp;
     
     if(CanLevelUp()){
         LevelUp();
+        return true;
     }
     else if(CanLevelDown()){
         LevelDown();
+        return true;
     }
 
     UpdateData();
@@ -111,25 +109,25 @@ void CharacterData::LevelDown(){
     }
 }
 
-void CharacterData::SetArmor(double _armor){
-    armor = max(_armor, 0.0);
-    UpdateData();
-}
+// void CharacterData::SetArmor(double _armor){
+//     armor = max(_armor, 0.0);
+//     UpdateData();
+// }
 
-double CharacterData::Armor(){
-    return armor;
-}
+// double CharacterData::Armor(){
+//     return armor;
+// }
 
-void CharacterData::AddArmor(double _armor){   
-    double tempArmor = armor;   
-    armor = max(tempArmor + _armor, 0.0);
-    UpdateData();
-}
+// void CharacterData::AddArmor(double _armor){   
+//     double tempArmor = armor;   
+//     armor = max(tempArmor + _armor, 0.0);
+//     UpdateData();
+// }
 
 void CharacterData::UpdateData(){
     data.level = level;
     data.experience = experience;
     data.currentHealth = currentHealth;
     data.maxHealth = maxHealth;
-    data.armor = armor;
+    //data.armor = armor;
 }
