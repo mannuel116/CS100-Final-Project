@@ -88,5 +88,8 @@ void LootEv::getWeapon(Character player) {
             break;
         }
     }
-    Weapon *weapon = new Weapons(name, damage, crit);
+    //Weapon *weapon = new Weapons(name, damage, crit);
+    /*
+        Add weapon to player inventory here
+    */
 }
