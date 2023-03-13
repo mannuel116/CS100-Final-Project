@@ -1,18 +1,17 @@
 #ifndef ITEM_H
 #define ITEM_H
+#include <string>
 
-#include <iostream>
-
-using std::string;
+using namespace std;
 
 class Item {
     private:
         string name;
+        string description;
     public:
-        Item(string n) {name = n;}
-        virtual int useItem() = 0;
-        virtual void description() = 0;
-        string getName() {return name;}
+        Item(string _name, string _description) : name(_name), description(_description) {}
+        string Description();
+        string Name();
 };
 
 #endif

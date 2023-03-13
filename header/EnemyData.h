@@ -2,7 +2,6 @@
 #define ENEMYDATA_H
 #include <string>
 #include <algorithm>
-class Weapon;
 
 using namespace std;
 
@@ -11,7 +10,6 @@ class EnemyData {
         float currHealth;
         float maxHealth;
         string name;
-        Weapon weapon;
         float xp;       
 
 

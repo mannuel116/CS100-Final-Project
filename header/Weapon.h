@@ -2,22 +2,21 @@
 #define WEAPONS_H
 
 #include "Item.h"
-class Character;
+#include <string>
 
-
-using std::string;
+using namespace std;
 
 class Weapon : public Item {
     private:
-        float damage, crit;
+        float damage, criticalDamage;
     public:
-        Weapon(string, float, float);
-        string getName();
-        float useItem(Character);
-        float getDmg();
-        float doCrit(Character);
-        float getCrit();
-        void description();
+        Weapon(string _name, string _description, float _damage, float _criticalDamage) : 
+                Item(_name, _description) {
+            this->damage = _damage;
+            this->criticalDamage = _criticalDamage;
+        }
+        float Damage();
+        float CriticalDamage();
 };
 
 #endif
