@@ -1,12 +1,14 @@
 #include "../header/Enemy.h"
+#include "../header/Weapon.h"
+#include "../header/Item.h"
 
 using namespace std;
 
-void Enemy::equipWeapon(string weaponName, float weaponDMG, float weaponCrit){
-    //implement next sprint
+void Enemy::equipWeapon(Weapon _weapon){
+    this->enemyWeapon = _weapon;
+}
+Weapon Enemy::getWeapon(){
+    return this->enemyWeapon;
 }
 
-Item Enemy::getDrop(){
-    //implement next sprint
-}
 
