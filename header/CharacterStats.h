@@ -11,15 +11,13 @@
                             int strength = 0, 
                             int agility = 0, 
                             int compatibility = 0, 
-                            int luck = 0
-                            int psychosis = 0)
+                            int luck = 0)
         - Variables:
             -> vitality
             -> strength
             -> agility
             -> compatibility
             -> luck
-            -> psychosis
             - characterStats { int vitality, strength, agility, compatibility, luck }
                 -> Struct that contain all data just here if developer wishes to 
                     handle data differently
@@ -44,9 +42,9 @@
 
 using namespace std;
 
-// int vitality, strength, agility, compatibility, luck, psychosis
+// int vitality, strength, agility, compatibility, luck
 struct characterStats{
-    int vitality, strength, agility, compatibility, luck, psychosis;
+    int vitality, strength, agility, compatibility, luck;
 };
 
 class CharacterStats{
@@ -56,7 +54,7 @@ class CharacterStats{
         int agility;
         int compatibility;
         int luck;
-        int psychosis;
+        //int psychosis;
         characterStats stats;
 
         // helper function
@@ -69,17 +67,17 @@ class CharacterStats{
             this->agility = max(_stats.agility, 0);
             this->compatibility = max(_stats.compatibility, 0);
             this->luck = max(_stats.luck, 0);
-            this->psychosis = max(_stats.psychosis, 0);
-            stats = { this->vitality, this->strength, this->agility, this->compatibility, this->luck, this->psychosis };
+            //this->psychosis = max(_stats.psychosis, 0);
+            stats = { this->vitality, this->strength, this->agility, this->compatibility, this->luck };
         }
-        CharacterStats(int _vitality = 0, int _strength = 0, int _agility = 0, int _compatibility = 0, int _luck = 0, int _psychosis = 0){
+        CharacterStats(int _vitality = 0, int _strength = 0, int _agility = 0, int _compatibility = 0, int _luck = 0){
             this->vitality = max(_vitality, 0);
             this->strength = max(_strength, 0);
             this->agility = max(_agility, 0);
             this->compatibility = max(_compatibility, 0);
             this->luck = max(_luck, 0);
-            this->psychosis = max(_psychosis, 0);
-            stats = { this->vitality, this->strength, this->agility, this->compatibility, this->luck, this->psychosis };
+            //this->psychosis = max(_psychosis, 0);
+            stats = { this->vitality, this->strength, this->agility, this->compatibility, this->luck };
         }
         // Vitality
         int Vitality();
@@ -107,9 +105,9 @@ class CharacterStats{
         void AddLuck(int _Luck);
 
         // Psychosis
-        int Psychosis();
-        void SetPsychosis(int _Luck);
-        void AddPsychosis(int _Luck);
+        // int Psychosis();
+        // void SetPsychosis(int _Luck);
+        // void AddPsychosis(int _Luck);
 };
 
 #endif

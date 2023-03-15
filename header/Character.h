@@ -43,8 +43,7 @@
             -> agility
             -> compatibility
             -> luck
-            -> psychosis
-            - characterStats { int vitality, strength, agility, compatibility, luck, psychosis }
+            - characterStats { int vitality, strength, agility, compatibility, luck }
             -> Struct that contain all data just here if developer wishes to 
                 handle data differently
             
@@ -105,20 +104,20 @@ class Character : public CharacterData, public CharacterStats{
             origin = _origin;
 
             // Modify Hp based on vitality stat
-            SetMaxHealth(MaxHealth() + (100 * (double)Vitality()));
+            SetMaxHealth(MaxHealth() + (double)(100 * Vitality()));
             SetCurrentHealth(MaxHealth());
         }
         /*
         (string name, Path origin, 
         int level, double startingHP, double startingXP,
-        int vitality, int strength, int agility, int compatibility, int luck, int psychosis) 
+        int vitality, int strength, int agility, int compatibility, int luck) 
         */
         Character(string _name, Path _origin,
          int startingLevel = 0, double startingHP = 100.0,
-         int _vitality = 0, int _strength = 0, int _agility = 0, int _compatibility = 0, int _luck = 0, int _psychosis = 0,
+         int _vitality = 0, int _strength = 0, int _agility = 0, int _compatibility = 0, int _luck = 0, 
          double startingExperience = 0.0) :
          CharacterData(startingLevel, startingHP, startingExperience), 
-         CharacterStats(_vitality, _strength, _agility, _compatibility, _luck, _psychosis)
+         CharacterStats(_vitality, _strength, _agility, _compatibility, _luck)
         {
             name = _name;
             origin = _origin;

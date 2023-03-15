@@ -75,20 +75,20 @@ void CharacterStats::AddLuck(int _luck){
     UpdateData();
 }
 
-int CharacterStats::Psychosis(){
-    return this->psychosis;
-}
+// int CharacterStats::Psychosis(){
+//     return this->psychosis;
+// }
 
-void CharacterStats::SetPsychosis(int _psychosis){
-    this->psychosis = max(0, _psychosis);
-    UpdateData();
-}
+// void CharacterStats::SetPsychosis(int _psychosis){
+//     this->psychosis = max(0, _psychosis);
+//     UpdateData();
+// }
 
-void CharacterStats::AddPsychosis(int _psychosis){
-    int tempPsychosis = this->psychosis;
-    this->psychosis = max(0, tempPsychosis + _psychosis);
-    UpdateData();
-}
+// void CharacterStats::AddPsychosis(int _psychosis){
+//     int tempPsychosis = this->psychosis;
+//     this->psychosis = max(0, tempPsychosis + _psychosis);
+//     UpdateData();
+// }
 
 void CharacterStats::UpdateData(){
     stats.vitality = vitality;
@@ -96,5 +96,5 @@ void CharacterStats::UpdateData(){
     stats.agility = agility;
     stats.compatibility = compatibility;
     stats.luck = luck;
-    stats.psychosis = psychosis;
+    //stats.psychosis = psychosis;
 }
