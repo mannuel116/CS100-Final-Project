@@ -28,7 +28,7 @@ TEST(CharacterDataTests, testCharacterDataStruct){
     tempData.level = 5;
     tempData.maxHealth = 30;
     tempData.currentHealth = 30;
-    characterStats tempStats = { 5, 5, 5, 5, 5};
+    characterStats tempStats = { 5, 5, 5, 5};
     Character *player = new Character("Justin", Character::Path::Corporate, tempData, tempStats);
     ASSERT_TRUE(player->Name() == "Justin");
     ASSERT_TRUE(player->Origin() == Character::Path::Corporate);
@@ -39,7 +39,7 @@ TEST(CharacterDataTests, testCharacterDataStruct){
 
 TEST(CharacterDataTests, testCharacterDataStructWithInvalidInput){
     characterData tempData = {-3, -2, -1, 0};
-    characterStats tempStats = { 5, 5, 5, 5, 5};
+    characterStats tempStats = { 5, 5, 5, 5};
     Character *player = new Character("Justin", Character::Path::Corporate, tempData, tempStats);
     ASSERT_TRUE(player->Name() == "Justin");
     ASSERT_TRUE(player->Origin() == Character::Path::Corporate);

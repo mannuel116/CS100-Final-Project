@@ -13,7 +13,7 @@
             -> Character(string name, 
                             Path origin,
                             int _level = 0, double _health = 100.0,
-                            int _vitality = 0, int _strength = 0, int _agility = 0, int _compatibility = 0, int _luck = 0, int _psychosis = 0, 
+                            int _vitality = 0, int _strength = 0, int _agility = 0, int _luck = 0, int _psychosis = 0, 
                             double _experience = 0.0)
                 - Side note for above constructor:
                     -> I left experience at the end to all for the constructor to be
@@ -41,9 +41,8 @@
             -> vitality
             -> strength
             -> agility
-            -> compatibility
             -> luck
-            - characterStats { int vitality, strength, agility, compatibility, luck }
+            - characterStats { int vitality, strength, agility, luck }
             -> Struct that contain all data just here if developer wishes to 
                 handle data differently
             
@@ -110,14 +109,14 @@ class Character : public CharacterData, public CharacterStats{
         /*
         (string name, Path origin, 
         int level, double startingHP, double startingXP,
-        int vitality, int strength, int agility, int compatibility, int luck) 
+        int vitality, int strength, int agility, int luck) 
         */
         Character(string _name, Path _origin,
          int startingLevel = 0, double startingHP = 100.0,
-         int _vitality = 0, int _strength = 0, int _agility = 0, int _compatibility = 0, int _luck = 0, 
+         int _vitality = 0, int _strength = 0, int _agility = 0, int _luck = 0, 
          double startingExperience = 0.0) :
          CharacterData(startingLevel, startingHP, startingExperience), 
-         CharacterStats(_vitality, _strength, _agility, _compatibility, _luck)
+         CharacterStats(_vitality, _strength, _agility, _luck)
         {
             name = _name;
             origin = _origin;

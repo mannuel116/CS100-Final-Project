@@ -46,20 +46,20 @@ void CharacterStats::AddAgility(int _agility){
     UpdateData();
 }
 
-int CharacterStats::Compatibility(){
-    return this->compatibility;
-}
+// int CharacterStats::Compatibility(){
+//     return this->compatibility;
+// }
 
-void CharacterStats::SetCompatibility(int _compatibility){
-    this->compatibility = max(0, _compatibility);
-    UpdateData();
-}
+// void CharacterStats::SetCompatibility(int _compatibility){
+//     this->compatibility = max(0, _compatibility);
+//     UpdateData();
+// }
 
-void CharacterStats::AddCompatibility(int _compatibility){
-    int tempCompatibility = this->compatibility;
-    this->compatibility = max(0, tempCompatibility + _compatibility);
-    UpdateData();
-}
+// void CharacterStats::AddCompatibility(int _compatibility){
+//     int tempCompatibility = this->compatibility;
+//     this->compatibility = max(0, tempCompatibility + _compatibility);
+//     UpdateData();
+// }
 
 int CharacterStats::Luck(){
     return this->luck;
@@ -94,7 +94,7 @@ void CharacterStats::UpdateData(){
     stats.vitality = vitality;
     stats.strength = strength;
     stats.agility = agility;
-    stats.compatibility = compatibility;
+    //stats.compatibility = compatibility;
     stats.luck = luck;
     //stats.psychosis = psychosis;
 }
