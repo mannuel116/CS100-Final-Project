@@ -34,9 +34,8 @@ class Enemy : public EnemyStats, public EnemyData {
             setExp(xpDrop);
         }
         
-        void equipWeapon(string weaponName, float weaponDMG, float weaponCrit);
+        void equipWeapon(float weaponDMG, float weaponCrit);
         Weapon *weapon;
-        Item getDrop();
 };
 
 
