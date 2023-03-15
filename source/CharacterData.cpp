@@ -5,7 +5,7 @@
 using namespace std;
 
 void CharacterData::SetMaxHealth(double hp){
-    currentHealth = maxHealth = max(hp, 0.0);
+    maxHealth = max(hp, 0.0);
     UpdateData();
 }
 
@@ -63,6 +63,7 @@ bool CharacterData::AddExperience(double xp){
     }
 
     UpdateData();
+    return false;
 }
 
 double CharacterData::Experience(){

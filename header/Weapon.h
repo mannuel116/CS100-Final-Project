@@ -10,6 +10,7 @@ class Weapon : public Item {
     private:
         float damage, criticalDamage;
     public:
+        // 
         Weapon(string _name, string _description, float _damage, float _criticalDamage) : 
                 Item(_name, _description) {
             this->damage = _damage;

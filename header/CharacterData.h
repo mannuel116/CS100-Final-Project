@@ -51,11 +51,11 @@ using namespace std;
 
 /* 
 int level;
-double currentHealth, maxHealth, experience = 0
+double maxHealth, currentHealth, experience = 0
 */
 struct characterData {
-    int level;
-    double currentHealth, maxHealth, experience = 0;
+    int level = 0;
+    double maxHealth = 0, currentHealth = 0, experience = 0;
 };
 
 class CharacterData {
@@ -79,7 +79,7 @@ class CharacterData {
         CharacterData(characterData _data){
             this->level = max(_data.level, 0);
             this->experience = max(_data.experience, 0.0);
-            this->currentHealth = max(_data.currentHealth, 0.0);
+            this->currentHealth = max(_data.maxHealth, 0.0);
             this->maxHealth = max(_data.maxHealth, 0.0);
             //this->armor = max(_data.armor, 0.0);
             data = { this->level, this->currentHealth, this->maxHealth, this->experience};
