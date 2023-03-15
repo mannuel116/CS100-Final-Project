@@ -10,12 +10,11 @@
             -> CharacterData(int _level = 0, 
                             double _currentHealth = 0.0, 
                             double _maxHealth = 0.0, 
-                            double _armor = 0.0,  
                             double _experience = 0.0)
                 - Side note for above constructor:
                     -> I left experience at the end to all for the constructor to be
                         called as so:
-                            CharacterData(level, health, health, armor);
+                            CharacterData(level, health);
                         Can omit experience and it will be set to 0.
 
         - Variables:
@@ -23,10 +22,9 @@
             -> experience
             -> currentHealth
             -> maxHealth
-            -> armor
             -> characterData { 
                 int level;
-                double currentHealth, maxHealth, armor, experience = 0
+                double currentHealth, maxHealth, experience = 0
                 }
             -> Struct that contain all data just here if developer wishes to 
                 handle data differently
@@ -53,11 +51,11 @@ using namespace std;
 
 /* 
 int level;
-double currentHealth, maxHealth, armor, experience = 0
+double currentHealth, maxHealth, experience = 0
 */
 struct characterData {
     int level;
-    double currentHealth, maxHealth, armor, experience = 0;
+    double currentHealth, maxHealth, experience = 0;
 };
 
 class CharacterData {
@@ -66,7 +64,7 @@ class CharacterData {
         double experience;          
         double currentHealth;      
         double maxHealth;           
-        double armor;     
+        //double armor;     
         characterData data;    
 
         // Helper functions
@@ -83,16 +81,16 @@ class CharacterData {
             this->experience = max(_data.experience, 0.0);
             this->currentHealth = max(_data.currentHealth, 0.0);
             this->maxHealth = max(_data.maxHealth, 0.0);
-            this->armor = max(_data.armor, 0.0);
-            data = { this->level, this->currentHealth, this->maxHealth, this->armor , this->experience};
+            //this->armor = max(_data.armor, 0.0);
+            data = { this->level, this->currentHealth, this->maxHealth, this->experience};
         }
-        CharacterData( int _level = 0, double _maxHealth = 0.0, double _armor = 0.0,  double _experience = 0.0){
+        CharacterData( int _level = 0, double _maxHealth = 0.0, double _experience = 0.0){
             this->level = max(_level, 0);
             this->experience = max(_experience, 0.0);
             this->currentHealth = max(_maxHealth, 0.0);
             this->maxHealth = max(_maxHealth, 0.0);
-            this->armor = max(_armor, 0.0);
-            data = { this->level, this->currentHealth, this->maxHealth, this->armor, this->experience};
+            //this->armor = max(_armor, 0.0);
+            data = { this->level, this->currentHealth, this->maxHealth, this->experience};
         }
 
         // Health functions:
@@ -106,7 +104,7 @@ class CharacterData {
         // Experience functions
         double Experience();
         void SetExperience(double xp);
-        void AddExperience(double xp);
+        bool AddExperience(double xp);
 
         // Level functions
         double Level();
@@ -114,9 +112,9 @@ class CharacterData {
         void AddLevel(int lvl);
 
         // Armor functions
-        double Armor();
-        void SetArmor(double _armor);
-        void AddArmor(double _armor);
+        // double Armor();
+        // void SetArmor(double _armor);
+        // void AddArmor(double _armor);
 };
 
 #endif

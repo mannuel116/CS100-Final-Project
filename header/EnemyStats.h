@@ -12,7 +12,7 @@ class EnemyStats{
         int luck;
 
     public:
-        EntityStats(int _vitality = 0, int _agility = 0, int _luck = 0){
+        EnemyStats(int _vitality = 0, int _agility = 0, int _luck = 0){
             this->vitality = max(_vitality, 0);
             this->agility = max(_agility, 0);
             this->luck = max(_luck, 0);
