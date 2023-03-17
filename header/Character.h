@@ -46,9 +46,7 @@
             -> Struct that contain all data just here if developer wishes to 
                 handle data differently
             
-            -> inventory
             -> weapon
-            -> implant
 
         - Methods:
             - NOTE:
