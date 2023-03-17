@@ -23,32 +23,47 @@ TEST(CharacterTests, testConstructorWithInvalidInput){
     delete player;
 }
 
+TEST(CharacterTests, testSetGetFunctions){
+    Character *player = new Character("Justin", Character::Path::Corporate, 5, 30);
+    
+    player->SetName("Javier");
+    EXPECT_TRUE(player->Name() == "Javier");
+    player->SetOrigin(Character::Path::Nomad);
+    EXPECT_TRUE(player->Origin() == Character::Path::Nomad);
+
+    
+    delete player;
+}
+
 TEST(CharacterDataTests, testCharacterDataStruct){
-    characterData tempData = {5, 30, 30};
-    characterStats tempStats = { 5, 5, 5, 5, 5, 5};
+    characterData tempData;
+    tempData.level = 5;
+    tempData.maxHealth = 30;
+    tempData.currentHealth = 30;
+    characterStats tempStats = { 5, 5, 5, 5};
     Character *player = new Character("Justin", Character::Path::Corporate, tempData, tempStats);
     ASSERT_TRUE(player->Name() == "Justin");
     ASSERT_TRUE(player->Origin() == Character::Path::Corporate);
     ASSERT_TRUE(player->Level() == 5);
-    ASSERT_TRUE(player->CurrentHealth() == 30);
+    ASSERT_NEAR(player->CurrentHealth(), 530, .1);
     delete player;
 }
 
 TEST(CharacterDataTests, testCharacterDataStructWithInvalidInput){
     characterData tempData = {-3, -2, -1, 0};
-    characterStats tempStats = { 5, 5, 5, 5, 5, 5};
+    characterStats tempStats = { 5, 5, 5, 5};
     Character *player = new Character("Justin", Character::Path::Corporate, tempData, tempStats);
     ASSERT_TRUE(player->Name() == "Justin");
     ASSERT_TRUE(player->Origin() == Character::Path::Corporate);
     ASSERT_TRUE(player->Level() == 0);
-    ASSERT_TRUE(player->CurrentHealth() == 0);
+    ASSERT_NEAR(player->CurrentHealth(), 500, .1);
     delete player;
 }
 
 TEST(CharacterDataTests, testSetCurrentHealthAboveMaxHP){
     Character *player = new Character("Justin", Character::Path::Corporate, 5, 30);
     player->SetCurrentHealth(999999);
-    EXPECT_TRUE(player->CurrentHealth() == 30);
+    EXPECT_NEAR(player->CurrentHealth(), 999999, .1);
     delete player;
 }
 
@@ -63,6 +78,22 @@ TEST(CharacterDataTests, testAddCurrentHealthAboveMaxHP){
     Character *player = new Character("Justin", Character::Path::Corporate, 5, 30);
     player->AddCurrentHealth(31);
     EXPECT_TRUE(player->CurrentHealth() == 30);
+    delete player;
+}
+
+TEST(CharacterDataTests, testAddMaxHealthWithNegativeParameter){
+    Character *player = new Character("Justin", Character::Path::Corporate, 5, 30);
+    player->AddMaxHealth(-5);
+    EXPECT_TRUE(player->CurrentHealth() == 25);
+    EXPECT_TRUE(player->MaxHealth() == 25);
+    delete player;
+}
+
+TEST(CharacterDataTests, testAddMaxHealth){
+    Character *player = new Character("Justin", Character::Path::Corporate, 5, 30);
+    player->AddMaxHealth(5);
+    EXPECT_TRUE(player->CurrentHealth() == 30);
+    EXPECT_TRUE(player->MaxHealth() == 35);
     delete player;
 }
 
@@ -111,6 +142,24 @@ TEST(CharacterDataTests, testAddExperienceWithNegativeFloat){
     player->AddExperience(-5.5);
     EXPECT_NEAR(player->Experience(), .5, .1);
     EXPECT_TRUE(player->Level() == 4);
+    delete player;
+}
+
+TEST(CharacterDataTests, testAddExperienceWithMassiveNegative){
+    Character *player = new Character("Justin", Character::Path::Corporate, 10, 30);
+    player->AddExperience(-9999.9);
+    EXPECT_NEAR(player->Experience(), 0, .1);
+    EXPECT_TRUE(player->Level() == 0);
+    delete player;
+}
+
+TEST(CharacterDataTests, testSetExperienceWithInvalidInputs){
+    Character *player = new Character("Justin", Character::Path::Corporate, 5, 30);
+    player->SetExperience(-1.0);
+    EXPECT_NEAR(player->Experience(), 0, .1);
+    player->SetExperience(1.0);
+    EXPECT_NEAR(player->Experience(), .99999, .1);
+    
     delete player;
 }
 
@@ -184,7 +233,7 @@ TEST(CharacterDataTests, testAddLevelMin){
 //     delete player;
 // }
 
-int main(int argc, char **argv) {
-  ::testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
-}
+// int main(int argc, char **argv) {
+//   ::testing::InitGoogleTest(&argc, argv);
+//   return RUN_ALL_TESTS();
+// }

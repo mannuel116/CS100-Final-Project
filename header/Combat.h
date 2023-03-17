@@ -39,10 +39,6 @@ class Combat{
             this->player = _player;
             this->enemy = _enemy;
         }
-        ~Combat(){
-            delete player;
-            delete enemy;
-        }
         bool DoPlayerCombat();
         bool DoEnemyCombat();
 };

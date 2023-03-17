@@ -5,7 +5,7 @@
 using namespace std;
 
 void CharacterData::SetMaxHealth(double hp){
-    currentHealth = maxHealth = max(hp, 0.0);
+    maxHealth = max(hp, 0.0);
     UpdateData();
 }
 
@@ -15,7 +15,7 @@ double CharacterData::MaxHealth(){
 
 void CharacterData::AddMaxHealth(double hp){       // Should increasing MaxHP increase currentHP?
     maxHealth += hp;
-    currentHealth += hp;
+    currentHealth = maxHealth;
     UpdateData();
 }
 
@@ -63,6 +63,7 @@ bool CharacterData::AddExperience(double xp){
     }
 
     UpdateData();
+    return false;
 }
 
 double CharacterData::Experience(){
@@ -84,8 +85,15 @@ double CharacterData::Level(){
 }
 
 bool CharacterData::CanLevelUp(){
-    if(experience >= 1)
+    if(level == 0 && experience <= 0.0){
+        experience = 0;
+        return false;                             // stops player from going below level 0
+    }
+
+    if(experience >= 1){
        return true;
+    }
+
     return false;  
 }
 
@@ -97,8 +105,15 @@ void CharacterData::LevelUp(){
 }
 
 bool CharacterData::CanLevelDown(){
-    if(experience < 0 && level > 0)
+    if(level == 0 && experience <= 0.0){
+        experience = 0;
+        return false;                             // stops player from going below level 0
+    }
+
+    if(experience < 0 && level > 0){
        return true;
+    }
+
     return false;  
 }
 
