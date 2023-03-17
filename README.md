@@ -135,10 +135,9 @@ The *Character* class is where the player's character object will be created fro
 
 **16. Enemy**
 
-The *Enemy* class is where all instances of enemies in our game will be created from.
+The *Enemy* class is where all instances of enemies in our game will be created from. It is inherited from both EnemyStats and EnemyData to ensure it has all the appropriate information regarding the enemy.
 
-* +equipWep() - Function to generate a weapon for enemy depending on what we want them to have.
-* +getDrop() - Generates a loot event to get an item drop.
+* +equipWeapon() - Function to equip a weapon for enemy depending on what we want them to have.
 
 **SOLID principle changes**
 
