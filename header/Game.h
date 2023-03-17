@@ -2,23 +2,30 @@
 #define GAME_H
 
 #include "Story.h"
+#include "Inventory.h"
+#include "Character.h"
+#include "Enemy.h"
+#include "CombatEV.h"
 
 class Game {
     private:
-        /*
-            Player variable
-            Inventory variable or is player going to inherit inventory? If yes, no need for this variable
-        */
-       Character *user;
+       Character *player;
        Story *story;
+       Inventory *inv;
     public:
         Game();
+        void runGame();
         void prologue();
-        void floorOne();
-        void floorTwo();
+        bool floorOne();
+        bool floorTwo();
         void floorThree();
         void epilogue();
-        void makeChar();
+        void setChar();
+        double genEnemXP();
+        bool combat(string, int, int, int, double, int, int);
+        void loot();
+        bool isDead(Enemy *);
+        void levelUp(Enemy *);
         ~Game();
 };
 

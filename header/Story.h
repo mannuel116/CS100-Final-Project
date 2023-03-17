@@ -1,5 +1,7 @@
-#ifndef EVENT_H
-#define EVENT_H
+#ifndef STORY_H
+#define STORY_H
+
+#include "Character.h"
 
 class Story {
 
@@ -9,8 +11,10 @@ class Story {
         void importantInfo();
         void intro();
         void actOne();
-        void actTwo();
-        void actThree();
+        void actTwo(Character *);
+        void actThree(Character *);
+        void breakOne();
+        void actFour(Character *);
 };
 
 #endif

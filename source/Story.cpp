@@ -1,5 +1,7 @@
 #include <iostream>
 #include "../header/Story.h"
+#include "../header/Character.h"
+#include "../header/CharacterData.h"
 
 using namespace std;
 
@@ -71,9 +73,10 @@ void Story::actOne() {
     cout << "\"Who are you?\""; newLine();
 }
 
-void Story::actTwo(Character p) {
-    cout << "\"Nice to meet you \"" << p.Name(); newLine();
-    if (p.Origin() == Corporate) {
+void Story::actTwo(Character *p) {
+    cin.ignore();
+    cout << "\"Nice to meet you " << p->Name() << "\""; newLine();
+    if (p->Origin() == Character::Path::Corporate) {
         cout << "\"So you were actually on corpse payroll?\""; newLine();
         cout << "\"Well I'll be damned\""; newLine();
         cout << "\"Takes guts to leave that kinda life style behind\""; newLine();
@@ -81,7 +84,7 @@ void Story::actTwo(Character p) {
         cout << "\"And now you're about to hit the biggest corp of them all\""; newLine();
         cout << "\"Ain't life funny like that sometimes?\""; newLine();
     }
-    else if (p.Origin() == Nomad) {
+    else if (p->Origin() == Character::Path::Nomad) {
         cout << "\"You know I've done some travelling myself\""; newLine();
         cout << "\"Always end up coming back to Night City though\""; newLine();
         cout << "\"Guess you just can't get enough of it once you've had it\""; newLine();
@@ -105,22 +108,101 @@ void Story::actTwo(Character p) {
     cout << "Arasaka"; newLine();
 }
 
-void Story::actThree(Character p) {
+void Story::actThree(Character *p) {
     cout << "The second the AV lands, all hell breaks loose"; newLine();
     cout << "Most of the team is already out the door firing back at Arasaka cylons, corporate security officers"; newLine();
     cout << "You're about to get on the ground when Johnny calls you"; newLine();
-    cout << "\"" << p.Name() << "!\""; newLine();
+    cout << "\"" << p->Name() << "!\""; newLine();
     cout << "\"Falco!\""; newLine();
     cout << "\"You two are with me\""; newLine();
     cout << "Falco was one the guys Johnny introduced earlier"; newLine();
-    cout << "He didn't say much about him other than the fact that he was an important asset to the job"
+    cout << "He didn't say much about him other than the fact that he was an important asset to the job"; newLine();
     cout << "\"While everyone else is keeping these cylons busy in the front, were gonna find a way inside\""; newLine();
     cout << "You hand't realize it before, but you're at the Arasaka Towers"; newLine();
     cout << "The same place Johnny was all those years ago"; newLine();
     cout << "All the noise and commotion down below becomes a distant thought as the AV begins to ascend once again"; newLine();
-    cout << "You must've gone up 40 stories before Johnny stops the pilot and tells you to blow a hole into the tower"; newLine();
+    cout << "You must've gone up a hundred stories before Johnny stops the pilot and tells you to blow a hole into the tower"; newLine();
     cout << "You do, and then jump from the AV into the tower, being careful to mind the gap between the two that would surely lead to your untimely demise otherwise"; newLine();
-    cout << "Upon landing, you see a cylon already waiting for you"; newLine();
+    cout << "Upon landing in the room, you see a cylon already waiting for you"; newLine();
     cout << "Good"; newLine();
     cout << "You were itching to see some action"; newLine();
 }
+
+void Story::breakOne() {
+    cin.ignore();
+    cout << "The Saka' cylon finally falls to the ground"; newLine();
+    cout << "But before you get the chance to even reload, two more Saka' mouth breathers show up"; newLine();
+    cout << "Such is the life of an Edgerunenr"; newLine();
+}
+
+void Story::actFour(Character *p) {
+    cout << "The Saka cylon finally falls to the ground"; newLine();
+    cout << "Johnny and Falco join you as they leap through the perfect hole you made in the tower"; newLine();
+    cout << "Johnny looks at the dead corpse and then at you"; newLine();
+    cout << "\"I see you've handled business here\""; newLine();
+    cout << "\"Goodjob\""; newLine();
+    cout << "The three of you head out of the room and enter a barren space with nothing but a set of stairs in the middle"; newLine();
+    cout << "It's a large room devoid of all color except the most piercing white you've ever seen"; newLine();
+    cout << "You all ascend them and are met with a seamingly impenetrable door"; newLine();
+    cout << "This is Arasaka Towers afterall, but you can't help but wonder why a door like this would be randomly placed here"; newLine();
+    cout << "Johnny sees the look of confusion on your face and decides to give you an explanation while Falco starts working on the door"; newLine();
+    cout << "\"Well " << p->Name() << ", you're probably wondering why we're here\""; newLine();
+    cout << "\"Does the name David Martinez sound familiar to you\""; newLine();
+    cout << "That's that Edgerunner that the whole city was talking about not too long ago"; newLine();
+    cout << "\"Well you should cuz he's the newest addition to the ever pleasant group of Night City legends\""; newLine();
+    cout << "You wonder what all this info has to do with the job"; newLine();
+    cout << "\"And he was recently shot dead in the head by none other than the Weapon of Arasaka and fellow Night City legend, Adam Smasher\""; newLine();
+    cout << "Oh"; newLine();
+    cout << "\"Poor Falco was there when it all went down too\""; 
+    cout << "\"Now the reason we're here is because despite being dead, good ol' Saka ain't through with David\"";
+    cout << "\"We're gonna make sure they are\""; newLine();
+    cout << "Johnny sees an even more bewildered look appear on your face and realizes that might not have been the clearest of explanations"; newLine();
+    cout << "But"; newLine();
+    cout << "Before he gets the chance to ammend himself, the loudest explosion you've heard followed by countless cylons and even a couple chrome jockies interupt"; newLine();
+    cout << "\"Falco!\""; newLine();
+    cout << "\"We'll handle this, you just get that door open!\""; newLine();
+}
+
+void Story::actFive(Character *p) {
+    cout << "You lay waste to the last Saka' goon in front of you and return to cover, taking a moment to catch your breath"; newLine();
+    cout << "Turning to Johnny, you see him do the same"; newLine();
+    cout << "The threat having been dealt with, you both return to Falco"; newLine();
+    cout << "Suprisingly, he got the door open"; newLine();
+    cout << "\"We've only been here for a couple minutes and you got the door open already?!\""; newLine();
+    cout << "\"I learned from the best when it comes to these kinda things\""; newLine();
+    cout << "You don't doubt him for a second"; newLine();
+    cout << "You didn't even know it was a door until he started working on it"; newLine();
+    cout << "To be fair, it was one of those doors that are just apart of the wall"; newLine();
+    cout << "Classic Saka'"; newLine();
+    cout << "You all begin to walk through the door"; newLine();
+    cout << "Johnny turns to you"; newLine();
+    cout << "\"Well nows a good a time as any\""; newLine();
+    cout << "\"" << p->Name() << "\""; newLine(); newLine();
+    cout << "\"Do you know what a construct is?\""; newLine();
+    cout << "\"It is the consciousness of an individual which has been copied into coding form\""; newLine();
+    cout << "\"They're created using a program called Soulkiller, an-\""; newLine();
+    cout << "\"It's basically a digital copy of yourself and people believe that it's the sure shot method of obtaining immortality\""; newLine();
+    cout << "\"They're wrong\n"; newLine();
+    cout << "\"...\""; newLine();
+    cout << "\"I would know\""; newLine();
+    cout << "Does he mean.."; newLine();
+    cout << "\"The reason we're here is to stop Arasaka from turning David into a construct\""; newLine();
+    cout << "\"I know I said he was killed but creating a construct doesn't require the person to be alive\""; newLine();
+    cout << "\"Bastard was able to use the Cyber Skeleton without dying on the spot\""; newLine();
+    cout << "\"Who knows what Arasaka would do with a construct like that\""; newLine();
+    cout << "You all walk some more and it becomes progressively darker"; newLine();
+    cout << "Falco suddenly stops"; newLine();
+    cout << "\"We're here\""; newLine();
+    cout << "You can barely see Johnny turn to him with a confused face"; newLine();
+    cout << "\"What?\""; newLine();
+    cout << "\"I don't see a damn thing\""; newLine();
+    cout << "Falco's eyes start glowing"; newLine();
+    cout << "He's netrunning"; newLine();
+    cout << "\"There\""; newLine();
+    cout << "As he says that, a capsule begins to emerge from the ground"; newLine();
+    cout << "A soft blue light eminates from it"; newLine();
+    cout << "It's David"; newLine();
+    cout << "Johnny said he had died but his body seems perfectly intact"; newLine();
+    cout << "Is this really him?"; newLine();
+}
+

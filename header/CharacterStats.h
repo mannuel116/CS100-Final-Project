@@ -33,8 +33,8 @@
                 -> Can add or subtract a given amount from the given variable.
     >--------------------------------------------
 */
-#ifndef ENTITYSTATS_H
-#define ENTITYSTATS_H
+#ifndef CHARACTERSTATS_H
+#define CHARACTERSTATS_H
 
 #include <algorithm>
 

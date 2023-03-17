@@ -68,17 +68,13 @@
 #define CHARACTER_H
 #include "../header/CharacterData.h"
 #include "../header/CharacterStats.h"
-#include "../header/Inventory.h"
-#include "../header/Weapon.h"
+#include "Weapon.h"
 #include <algorithm>
 #include <string>
 
 using namespace std;
 
 class Character : public CharacterData, public CharacterStats{
-    /*-------------------------------------
-    INCLUDE INVENTORY HERE ONCE IT IS IMPLMENETED(CONSUMABLE AND WEAPON NOT IMPLEMENTED YET)
-    *///-----------------------------------
     public:
         enum Path {
             Corporate,
@@ -103,7 +99,7 @@ class Character : public CharacterData, public CharacterStats{
             origin = _origin;
 
             // Modify Hp based on vitality stat
-            SetMaxHealth(MaxHealth() + (double)(100 * Vitality()));
+            SetMaxHealth((double)(100 * Vitality()));
             SetCurrentHealth(MaxHealth());
         }
         /*
@@ -140,6 +136,4 @@ class Character : public CharacterData, public CharacterStats{
         string name;
 };
 
-
 #endif
-

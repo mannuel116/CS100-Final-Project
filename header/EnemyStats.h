@@ -28,12 +28,4 @@ class EnemyStats{
 };
 
 
-
-
-
-
-
-
-
-
 #endif
