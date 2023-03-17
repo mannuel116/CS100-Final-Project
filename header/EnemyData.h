@@ -24,6 +24,7 @@ class EnemyData {
         float getExp();
         void setExp(float _xp);
 
+
         void setName(string _name);
         string getName();
 

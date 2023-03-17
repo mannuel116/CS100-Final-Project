@@ -1,16 +1,3 @@
-/*
-    >--------------------------------------------
-    (Justin)NOTE:
-        -> If enemy has a weapon, include the weapon class and 
-            create a weapon variable under private. You can
-            then modify equip weapon to take in a weapon object
-            and assign it to the private weapon variable.
-
-    CHANGES(made by Justin):
-        -> added SetCurrentHealth to constructor
-        -> changed SetMaxHealth(startingHealth) -> SetMaxHealth(startingHealth + (100 * Vitality()))
-    >--------------------------------------------
-*/
 #ifndef ENEMY_H
 #define ENEMY_H
 #include "../header/EnemyStats.h"
