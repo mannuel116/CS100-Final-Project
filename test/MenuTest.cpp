@@ -6,12 +6,16 @@ using namespace std;
 
 //UNFINISHED. I NEED SERIOUS HELP. I DONT REMEMBER HOW TO WRITE TESTS. THANK GOD THAT WASNT ON EXAM 2
 
-TEST(MenuPrintTests, TestPauseMenu){
-
+TEST(MenuPrintTests, PauseMenuF){
+    Menu *menu = new Menu();
+    EXPECT_FALSE(menu->pauseMenu());
+    delete menu;
 }
 
-TEST(MenuPrintTests, TestPauseMenu){
-    
+TEST(MenuPrintTests, PauseMenuT){
+    Menu *menu = new Menu();
+    EXPECT_TRUE(menu->pauseMenu());
+    delete menu;
 }
 
 TEST(MenuPrintTests, TestPauseMenu){
