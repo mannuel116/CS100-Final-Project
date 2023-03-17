@@ -160,7 +160,10 @@ The *Enemy* class is where all instances of enemies in our game will be created 
  > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
  
  ## Screenshots
- > Screenshots of the input/output after running your application
+ > ![Path](Documentation/path.png)
+ > ![Combat](Documentation/combat1.png)
+ > ![End](Documentation/end.png)
+ > ![Valgrind](Documentation/valgrind.png)
  ## Installation/Usage
  > Instructions on installing and running your application
  ## Testing
