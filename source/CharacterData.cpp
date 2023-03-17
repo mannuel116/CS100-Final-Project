@@ -15,12 +15,7 @@ double CharacterData::MaxHealth(){
 
 void CharacterData::AddMaxHealth(double hp){       // Should increasing MaxHP increase currentHP?
     maxHealth += hp;
-    
-    if(maxHealth < currentHealth)
-    {
-        currentHealth = maxHealth;
-    }
-
+    currentHealth = maxHealth;
     UpdateData();
 }
 

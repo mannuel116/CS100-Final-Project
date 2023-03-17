@@ -1,41 +1,39 @@
 #include <iostream>
 #include "../header/LootEv.h"
 #include "../header/Weapon.h"
+#include "../header/Consumable.h"
+#include "../header/Inventory.h"
 
 using namespace std;
 
-void LootEv::runEvent(Character player) {
-    /*
-        generate random number to determine what type of loot will be dropped either after combat or during loot event
-        1-12 = hp item
-        13-19 = agl item
-        20-24 = weapon
-        25-30 = implant
-    */
-    int itemNumber = (rand() % 29) + 1;
+void LootEV::runEvent(Inventory *inv) {
 
-    if (itemNumber <= 12) getHpBoost(player);
-    else if (itemNumber <= 19) getAglBoost(player);
-    else if (itemNumber <= 24) getWeapon(player);
-    else getImplant(player);
+    int itemNumber = (rand() % 10) + 1;
+
+    if (itemNumber <= 10) getHpBoost(inv);
+    else getWeapon(inv,0);
 }
 
-void LootEv::getHpBoost(Character player) {
+void LootEV::getHpBoost(Inventory *inv) {
     int hpType = (rand() % 9) + 1;
     string itemName = (hpType <= 5)? "MAXDOC MK. 1" : (hpType <= 8)? "MAXDOC MK. 2" : "MAXDOC MK. 3";
     float itemEffect = (hpType <= 5)? .4 : (hpType <= 8)? .6 : .8;
-    //Consumable *hp = new Consumable(itemName,itemEffect);
-    //player.addItem(hp);
+    string descrp = (hpType <= 5)? "Restores a small amount of HP" : (hpType <= 8)? "Restores a medium amount of HP" : "Restores a large amount of HP";
+    Consumable *hp = new Consumable(itemName,"health",itemEffect,descrp);
+    string input;
+    do {
+        cout << "The following consumable dropped after combat: " << "\n" << hp->Name() << " - " << hp->Description() << "\n"
+             << "Take it?\n";
+        cin  >> input;
+    if (input == "1") inv->addCons(hp);
+    else if (input == "2") delete hp;
+    } while(input != "1" and input != "2");
+    cout << "\n\n\n\n\n\n\n\n";
 }
 
-void LootEv::getAglBoost(Character player) {
-    //Consumable *agl = new Consumable("Agility Boost",.5);
-    //player.addItem(agl);
-}
-
-void LootEv::getWeapon(Character player) {
-    int randWeapon = (rand() % 6) + 1;
-    string name;
+void LootEV::getWeapon(Inventory *inv, int randWeapon, bool start) {
+    randWeapon = (randWeapon == 0)? (rand() % 6) + 1 : randWeapon;
+    string name, descrp;
     float damage = 0, crit = 0;
 
     switch(randWeapon) {
@@ -43,53 +41,72 @@ void LootEv::getWeapon(Character player) {
             name = "Arasaka Nowaki";
             damage = 30;
             crit = 50;
+            descrp = "Masamune - power reimagined";
             break;
         }
         case 2: {
             name = "Militech M251s Ajax";
             damage = 50;
             crit = 10;
+            descrp = "Come rain or shine, it'll weather it out";
             break;
         }
         case 3: {
             name = "Arasaka Tamayura";
             damage = 10;
             crit = 30;
+            descrp = "Engineered to fit any hand";
             break;
         }
         case 4: {
             name = "Seraph";
             damage = 20;
             crit = 30;
+            descrp = "Padre's closest companion. Judge, jury, and executioner for divine justice - all rolled into one";
             break;
         }
         case 5: {
             name = "Militech Crusher";
             damage = 60;
             crit = 0;
+            descrp = "A firearm staple since 2020";
             break;
         }
         case 6: {
             name = "Arasaka Howler";
             damage = 70;
             crit = 0;
+            descrp = "Proof that you mean business";
             break;
         }
-        case 6: {
+        case 7: {
             name = "Fenrir";
             damage = 30;
             crit = 20;
+            descrp = "Belches fire like a dragon with a heartburn";
             break;
         }
-        case 6: {
+        case 8: {
             name = "Problem Solver";
             damage = 20;
             crit = 40;
+            descrp = "Don't bother aiming. Something's guaranteed to hit";
             break;
         }
     }
-    //Weapon *weapon = new Weapons(name, damage, crit);
-    /*
-        Add weapon to player inventory here
-    */
+    Weapon *wep = new Weapon(name, descrp, damage, crit);
+    string input;
+    if (!start) {
+        do {
+            cout << "The following weapon dropped after combat: " << "\n" << wep->Name() << " - " << wep->Description() << "\n"
+                << "Take it?\n";
+            cin  >> input;
+        if (input == "1") inv->addWep(wep);
+        else if (input == "2") delete wep;
+        } while(input != "1" and input != "2");
+        cout << "\n\n\n\n\n\n\n\n";
+    }
+    else {
+        inv->addWep(wep);
+    }
 }

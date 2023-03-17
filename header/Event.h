@@ -1,8 +1,9 @@
 #ifndef EVENT_H
 #define EVENT_H
+#include "Inventory.h"
 
 struct Event {
-        void runEvent()=0;
+        virtual void runEvent(Inventory *)=0;
 };
 
 #endif

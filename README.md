@@ -25,10 +25,9 @@
         * Scenarios that the player will encounter and make a decision in
         * Character selection
     * Data Storage:
-        * Saving checkpoints
-        * Health
+        * Specific stats for the character
         * Inventory:
-          * Items such as equipment
+          * Items such as consumables and weapons
     * Command line
         * Allows the player to control their character and access menus/information they will need
  
@@ -68,19 +67,16 @@ The *Item* interface will be used to implement the various types of items within
 
 **5.	Consumables**
 
-The *Consumables* class will be derived from the item interface. Healing items and Agility boosting items will be made from this class. Contains an *effect* and *type* data member to quantify the benefit of the item and determine the item respectively. 
+The *Consumables* class will be derived from the item interface. Healing items and potentialy other types would be made from this class. Contains an *effect* and *type* data member to quantify the benefit of the item and determine the item respectively. 
 
-*	+useItem() - Returns the effect of the item.
-* +description() - Tells the player what type of consumable the current item is.
+*	+useItem() - directly affects the players stats in a certain way dependant of the item used.
 
 **6.  Weapons**
 
 The *Weapons* class will be derived from the item interface. All weapons will be created from this class. It contains a *damage* and *crit* data member to quantify weapon damage and crit values.
 
-* +useItem() - Calls and returns the getDmg and doCrit function to determine total attack value during combat.
-* +getDmg() - Returns the damage data member.
-* +doCrit() - Determines if crit value should be added to total attack value depending on the player's luck stat.
-* +getCrit() - Returns crit data member.
+* +Damage() - Returns the damage data member.
+* +CriticalDamage() - Returns crit data member.
 
 **7. Inventory**
 
@@ -88,7 +84,6 @@ The *Inventory* class will be used to store any items the player picks up during
 
 * +checkInv() - Displays all items in inventory and asks player if they want to use anything.
 * +useHeals() - Adds HP to user depending on which healing item they choose.
-* +useAglBoost() - Temporarily increases agility stat for player depending on which boost item they choose.
 * +equipWep() - Allows the player to equip any weapon they have.
 
 **8.  Event**
@@ -99,42 +94,52 @@ The *Event* interface will be used to create the different event types for our g
 
 **9.  CombatEV**
 
-The *CombatEV* class will be used to create all combat events within our game. 
+The *CombatEV* class will be used to create combat events within our game. 
 
 * +chckAgl() - Checks who has the higher agility stat between the player and enemy in order to determine who begins the combat event.
 * +fight() - Loops combat until the player or enemy dies.
 
-**10. LootEV**
+**10.  Combat**
+
+The *Combat* class will be used to do individual attacks for either the player or the enemy. 
+
+* +DoPlayerCombat() - Uses player's luck stat to see if attack lands than impacting the enemy's health accordingly. Returns true if enemy health is below 0.
+* +DoEnemyCombat() - Uses Enemy's luck stat to see if attack lands than impacting the the player's health accordingly. Returns true if the player health is below 0.
+
+**11. LootEV**
 
 The *LootEV* class will be used to create all looting events for our game. The two instance in which an object of this class will be created is after a combat event after an enemy has been defeated, and when the player comes along a chest or something similar that contains loot.
 
-* + runEvent() - Generates a random number to determine what item drops after combat or what appears in the chest the player finds.
+* +runEvent() - Generates a random number to determine what item drops after combat or what appears in the chest the player finds.
 
-**11. EnemyStats**
+**12. EnemyStats**
 
-The *EnemyStats* class will hold all required stats for the enemy. Contains only three of the six stats the player has. Only has a constructor to set stats.
+The *EnemyStats* class will hold all required stats for the enemy. Contains only three of the stats the player has (vitality, agility, luck). Only has a constructor, and basic getters and setters for the stats.
 
-**12. CharacterStats**
+**13. CharacterStats**
 
-The *CharacterStats* contains all the stats the player can utilize during their playthrough. Contains setters and getters as stats can potentially change throughout the game's duration.
+The *CharacterStats* contains all the stats the player can utilize during their playthrough (vitality, agility, luck, strength). Contains setters and getters as stats can potentially change throughout the game's duration.
 
-**13. EntityData**
-\
-The *EntityData* class contains basic entity info such as HP, currently equiped weapon, and character name. Both the enemy class and character class inherit this.
+**14. EnemyData**
 
-**14. Character**
+The *EnemyData* class contains basic enemy info such as HP, its name, and the potential experience points it could drop when defeated. Has basic getters and setters for these variables.
+
+**15. CharacterData**
+
+The *CharacterData* class contains charcater info such as the character's level, current experience points, maximum health and current health. Contains contstructors, getters, setters, aswell as some helper functions for the character's level. 
+
+**16. Character**
 
 The *Character* class is where the player's character object will be created from. It contains only a checkInv class and a doCombat class. All other character functionality is handled by inherited data and stats classes.
 
 * +checkInv() - Uses inventory member to access inventory class functions.
 * +doCombat() - Menu to be displayed during combat events for player with options to choose from.
 
-**15. Enemy**
+**17. Enemy**
 
-The *Enemy* class is where all instances of enemies in our game will be created from.
+The *Enemy* class is where all instances of enemies in our game will be created from. It is inherited from both EnemyStats and EnemyData to ensure it has all the appropriate information regarding the enemy.
 
-* +equipWep() - Function to generate a weapon for enemy depending on what we want them to have.
-* +getDrop() - Generates a loot event to get an item drop.
+* +equipWeapon() - Function to equip a weapon for enemy depending on what we want them to have.
 
 **SOLID principle changes**
 
