@@ -25,10 +25,9 @@
         * Scenarios that the player will encounter and make a decision in
         * Character selection
     * Data Storage:
-        * Saving checkpoints
-        * Health
+        * Specific stats for the character
         * Inventory:
-          * Items such as equipment
+          * Items such as consumables and weapons
     * Command line
         * Allows the player to control their character and access menus/information they will need
  
