@@ -8,23 +8,23 @@ class CharacterInventoryStub : public Inventory {
     public:
     CharacterInventoryStub(){
         Weapon *tempWeapon = new Weapon("Cat Palm", "Blood from its previous owner remains stained on the claws.", 10.0, 20.0);
-            weapon_Inventory.push_back(*tempWeapon);
+            weapons.push_back(*tempWeapon);
             delete tempWeapon;
             tempWeapon = new Weapon("Cat", "Set and forget this ferocious beast into battle. Nothing will last long enough against all nine lives.", 40.0, 80.0);
-            weapon_Inventory.push_back(*tempWeapon);
+            weapons.push_back(*tempWeapon);
             delete tempWeapon;
             tempWeapon = new Weapon("Kitten", "A young yet fiesty kitten. Kills with cuteness.", 5.0, 10.0);
-            weapon_Inventory.push_back(*tempWeapon);
+            weapons.push_back(*tempWeapon);
             delete tempWeapon;
 
             Consumable *tempConsumable = new Consumable("Health Potion", "Health", 5.0, "Restores 5 Health");
-            consumable_Inventory.push_back(*tempConsumable);
+            consumables.push_back(*tempConsumable);
             delete tempConsumable;
             tempConsumable = new Consumable("Energy Drink", "Energy", 5.0, "Restores 5 Energy");
-            consumable_Inventory.push_back(*tempConsumable);
+            consumables.push_back(*tempConsumable);
             delete tempConsumable;
             tempConsumable = new Consumable("Dr Pepper", "GodPowers", 1.0, "A drink for those with good taste.");
-            consumable_Inventory.push_back(*tempConsumable);
+            consumables.push_back(*tempConsumable);
             delete tempConsumable;
     }
 };
@@ -32,7 +32,7 @@ class CharacterInventoryStub : public Inventory {
 TEST(CharacterInventoryStubTests, testInventoryItems){
     CharacterInventoryStub *vectorStub = new CharacterInventoryStub();
 
-    auto i = vectorStub->weapon_Inventory.begin();
+    auto i = vectorStub->weapons.begin();
     EXPECT_TRUE(i->Name() == "Cat Palm");
     EXPECT_TRUE(i->Description() == "Blood from its previous owner remains stained on the claws.");
     EXPECT_NEAR(i->Damage(), 10.0, .1);
@@ -48,7 +48,7 @@ TEST(CharacterInventoryStubTests, testInventoryItems){
     EXPECT_NEAR(i->Damage(), 5.0, .1);
     EXPECT_NEAR(i->CriticalDamage(), 10.0, .1);
     
-    auto x = vectorStub->consumable_Inventory.begin();
+    auto x = vectorStub->consumables.begin();
     EXPECT_TRUE(x->Name() == "Health Potion");
     EXPECT_TRUE(x->Description() == "Restores 5 Health");
     EXPECT_NEAR(x->Effect(), 5.0, .1);
