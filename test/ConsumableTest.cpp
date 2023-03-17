@@ -11,19 +11,17 @@ TEST(ConsumableTest, testConsumableConstructor){
 }
 
 TEST(ConsumableTest, testUseItem){
-    Consumable Potion("Health_Potion", "health", 7, "A potion that when consummed adds exactly 7 health points to your charcter") ;
+    Consumable Potion("Health_Potion", "health", 0.4, "A potion that when consummed adds exactly 40 health points to your charcter") ;
     Character *player = new Character("David", Character::Path::Corporate);
     player->SetCurrentHealth(30.0);
     Potion.useItem(player);
-    EXPECT_NEAR(player->CurrentHealth(), 37.0, 0.01);
-
+    EXPECT_NEAR(player->CurrentHealth(), 70.0, 0.01);
 }
 
 TEST(ConsumableTest, testUseItem2){
-    Consumable Potion("Useless_potion", "health", 0, "This potion adds nothing to your currect health points") ;
+    Consumable Potion("Useless_potion", "health", 0.1, "This potion adds 10 health points to your currect health points") ;
     Character *player = new Character("Lucy", Character::Path::Corporate);
     player->SetCurrentHealth(1.0);
     Potion.useItem(player);
-    EXPECT_NEAR(player->CurrentHealth(), 1.0, 0.01);
-
+    EXPECT_NEAR(player->CurrentHealth(), 11.0, 0.01);
 }
