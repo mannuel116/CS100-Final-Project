@@ -9,11 +9,11 @@
 
 class Inventory {
     private:
-        vector<Consumable *> consumables;
-        vector<Weapon *> weapons;
         int invSize;
         int itemCnt;
     public:
+        vector<Consumable *> consumables;
+        vector<Weapon *> weapons;
         Inventory();
         void invMenu(Character *);
         void setInvSize(int);

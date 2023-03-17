@@ -40,7 +40,7 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
     include_directories("${gtest_SOURCE_DIR}/include")
 endif ()
 
-set(SOURCE_FILES source/Character.cpp source/CharacterData.cpp source/CharacterStats.cpp source/Combat.cpp source/Weapon.cpp source/Item.cpp source/Enemy.cpp source/EnemyData.cpp source/EnemyStats.cpp source/Consumable.cpp)
+set(SOURCE_FILES source/Character.cpp source/CharacterData.cpp source/CharacterStats.cpp source/Combat.cpp source/Weapon.cpp source/Item.cpp source/Enemy.cpp source/EnemyData.cpp source/EnemyStats.cpp source/Consumable.cpp source/Inventory.cpp)
 
 set(TEST_FILES test/CharacterStatsTest.cpp test/CharacterTest.cpp test/CombatTest.cpp test/InventoryTest.cpp test/ItemsTest.cpp)
 add_executable(test ${TEST_FILES} ${SOURCE_FILES})

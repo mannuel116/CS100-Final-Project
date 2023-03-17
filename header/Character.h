@@ -116,7 +116,7 @@ class Character : public CharacterData, public CharacterStats{
             origin = _origin;
 
             // Modify Hp based on vitality stat
-            SetMaxHealth(MaxHealth() + (100 * (double)Vitality()));
+            SetMaxHealth((double)(100 * Vitality()));
             SetCurrentHealth(MaxHealth());
         }
         //----------------------------------------------------------------

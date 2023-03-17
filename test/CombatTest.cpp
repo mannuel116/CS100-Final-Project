@@ -1,4 +1,6 @@
 #include "gtest/gtest.h"
+#include "../header/Character.h"
+#include "../header/Enemy.h"
 #include "../header/Weapon.h"
 #include "../header/Combat.h"
 #include <string>
@@ -9,14 +11,14 @@ using namespace std;
     Combat Class
 */
 TEST(CombatTests, testCombatFatal){
-  Character *tempPlayer = new Character("Javier", Character::Path::Corporate);
-  Enemy *tempEnemy = new Enemy("Justin");
+  Character *tempPlayer = new Character("Javier", Character::Path::Corporate, 1, 1, 1);
+  Enemy *tempEnemy = new Enemy("Justin", 1);
 
   Combat *combat = new Combat(tempPlayer, tempEnemy);
 
   string name = "Cat";
   string description = "Saimese kitty that knows Wing Chun.";
-  Weapon *ofMassDestruction = new Weapon(name, description, 9999.9, 9999.9);
+  Weapon *ofMassDestruction = new Weapon(name, description, (float)200.0, (float)200.0);
   tempPlayer->weapon = ofMassDestruction;
   tempEnemy->weapon = ofMassDestruction;
 
@@ -28,14 +30,14 @@ TEST(CombatTests, testCombatFatal){
 }
 
 TEST(CombatTests, testCombatNonFatal){
-  Character *tempPlayer = new Character("Javier", Character::Path::Corporate);
-  Enemy *tempEnemy = new Enemy("Justin");
+  Character *tempPlayer = new Character("Javier", Character::Path::Corporate, 1, 1, 1);
+  Enemy *tempEnemy = new Enemy("Justin", 1);
 
   Combat *combat = new Combat(tempPlayer, tempEnemy);
 
   string name = "Cat";
   string description = "Saimese kitty that knows Wing Chun.";
-  Weapon *ofMassDestruction = new Weapon(name, description, 1.0, 2.0);
+  Weapon *ofMassDestruction = new Weapon(name, description, (float)1.0, (float)2.0);
   tempPlayer->weapon = ofMassDestruction;
   tempEnemy->weapon = ofMassDestruction;
 

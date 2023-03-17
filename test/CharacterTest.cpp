@@ -9,7 +9,7 @@ TEST(CharacterTests, testConstructor){
     ASSERT_TRUE(player->Name() == "Justin");
     ASSERT_TRUE(player->Origin() == Character::Path::Corporate);
     ASSERT_TRUE(player->Level() == 5);
-    ASSERT_TRUE(player->CurrentHealth() == 30);
+    ASSERT_TRUE(player->CurrentHealth() == 0);
     
     delete player;
 }
@@ -45,7 +45,7 @@ TEST(CharacterDataTests, testCharacterDataStruct){
     ASSERT_TRUE(player->Name() == "Justin");
     ASSERT_TRUE(player->Origin() == Character::Path::Corporate);
     ASSERT_TRUE(player->Level() == 5);
-    ASSERT_NEAR(player->CurrentHealth(), 530, .1);
+    ASSERT_NEAR(player->CurrentHealth(), 500, .1);
     delete player;
 }
 
@@ -70,30 +70,30 @@ TEST(CharacterDataTests, testSetCurrentHealthAboveMaxHP){
 TEST(CharacterDataTests, testAddCurrentHealthWithNegativeParameter){
     Character *player = new Character("Justin", Character::Path::Corporate, 5, 30);
     player->AddCurrentHealth(-5);
-    EXPECT_TRUE(player->CurrentHealth() == 25);
+    EXPECT_NEAR(player->CurrentHealth(), 0, .1);
     delete player;
 }
 
 TEST(CharacterDataTests, testAddCurrentHealthAboveMaxHP){
-    Character *player = new Character("Justin", Character::Path::Corporate, 5, 30);
+    Character *player = new Character("Justin", Character::Path::Corporate, 5, 30, 1);
     player->AddCurrentHealth(31);
-    EXPECT_TRUE(player->CurrentHealth() == 30);
+    EXPECT_NEAR(player->CurrentHealth(), 100, .1);
     delete player;
 }
 
 TEST(CharacterDataTests, testAddMaxHealthWithNegativeParameter){
-    Character *player = new Character("Justin", Character::Path::Corporate, 5, 30);
+    Character *player = new Character("Justin", Character::Path::Corporate, 5, 30, 1, 1, 1);
     player->AddMaxHealth(-5);
-    EXPECT_TRUE(player->CurrentHealth() == 25);
-    EXPECT_TRUE(player->MaxHealth() == 25);
+    EXPECT_NEAR(player->CurrentHealth(), 95, .1);
+    EXPECT_NEAR(player->MaxHealth(), 95, .1);
     delete player;
 }
 
-TEST(CharacterDataTests, testAddMaxHealth){
-    Character *player = new Character("Justin", Character::Path::Corporate, 5, 30);
+TEST(CharacterDataTests, testAddMaxHealthWithPositiveParameter){
+    Character *player = new Character("Justin", Character::Path::Corporate, 5, 30, 1);
     player->AddMaxHealth(5);
-    EXPECT_TRUE(player->CurrentHealth() == 30);
-    EXPECT_TRUE(player->MaxHealth() == 35);
+    EXPECT_NEAR(player->CurrentHealth(), 105, .1);
+    EXPECT_NEAR(player->MaxHealth(), 105, .1);
     delete player;
 }
 
