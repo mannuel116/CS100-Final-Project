@@ -46,9 +46,7 @@
             -> Struct that contain all data just here if developer wishes to 
                 handle data differently
             
-            -> inventory
             -> weapon
-            -> implant
 
         - Methods:
             - NOTE:
@@ -68,7 +66,6 @@
 #define CHARACTER_H
 #include "../header/CharacterData.h"
 #include "../header/CharacterStats.h"
-#include "../header/Inventory.h"
 #include "../header/Weapon.h"
 #include <algorithm>
 #include <string>
@@ -76,9 +73,6 @@
 using namespace std;
 
 class Character : public CharacterData, public CharacterStats{
-    /*-------------------------------------
-    INCLUDE INVENTORY HERE ONCE IT IS IMPLMENETED(CONSUMABLE AND WEAPON NOT IMPLEMENTED YET)
-    *///-----------------------------------
     public:
         enum Path {
             Corporate,

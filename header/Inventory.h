@@ -13,14 +13,14 @@
 */
 #ifndef INVENTORY_H
 #define INVENTORY_H
-class Weapon;
-class Consumable;
+#include "../header/Weapon.h"
+#include "../header/Consumable.h"
 #include <vector>
 
 using namespace std;
 
 class Inventory{
-    protected:
+    public:
         vector<Weapon> weapon_Inventory;
         vector<Consumable> consumable_Inventory;
 };

@@ -23,6 +23,18 @@ TEST(CharacterTests, testConstructorWithInvalidInput){
     delete player;
 }
 
+TEST(CharacterTests, testSetGetFunctions){
+    Character *player = new Character("Justin", Character::Path::Corporate, 5, 30);
+    
+    player->SetName("Javier");
+    EXPECT_TRUE(player->Name() == "Javier");
+    player->SetOrigin(Character::Path::Nomad);
+    EXPECT_TRUE(player->Origin() == Character::Path::Nomad);
+
+    
+    delete player;
+}
+
 TEST(CharacterDataTests, testCharacterDataStruct){
     characterData tempData;
     tempData.level = 5;
@@ -66,6 +78,22 @@ TEST(CharacterDataTests, testAddCurrentHealthAboveMaxHP){
     Character *player = new Character("Justin", Character::Path::Corporate, 5, 30);
     player->AddCurrentHealth(31);
     EXPECT_TRUE(player->CurrentHealth() == 30);
+    delete player;
+}
+
+TEST(CharacterDataTests, testAddMaxHealthWithNegativeParameter){
+    Character *player = new Character("Justin", Character::Path::Corporate, 5, 30);
+    player->AddMaxHealth(-5);
+    EXPECT_TRUE(player->CurrentHealth() == 25);
+    EXPECT_TRUE(player->MaxHealth() == 25);
+    delete player;
+}
+
+TEST(CharacterDataTests, testAddMaxHealth){
+    Character *player = new Character("Justin", Character::Path::Corporate, 5, 30);
+    player->AddMaxHealth(5);
+    EXPECT_TRUE(player->CurrentHealth() == 30);
+    EXPECT_TRUE(player->MaxHealth() == 35);
     delete player;
 }
 
@@ -114,6 +142,24 @@ TEST(CharacterDataTests, testAddExperienceWithNegativeFloat){
     player->AddExperience(-5.5);
     EXPECT_NEAR(player->Experience(), .5, .1);
     EXPECT_TRUE(player->Level() == 4);
+    delete player;
+}
+
+TEST(CharacterDataTests, testAddExperienceWithMassiveNegative){
+    Character *player = new Character("Justin", Character::Path::Corporate, 10, 30);
+    player->AddExperience(-9999.9);
+    EXPECT_NEAR(player->Experience(), 0, .1);
+    EXPECT_TRUE(player->Level() == 0);
+    delete player;
+}
+
+TEST(CharacterDataTests, testSetExperienceWithInvalidInputs){
+    Character *player = new Character("Justin", Character::Path::Corporate, 5, 30);
+    player->SetExperience(-1.0);
+    EXPECT_NEAR(player->Experience(), 0, .1);
+    player->SetExperience(1.0);
+    EXPECT_NEAR(player->Experience(), .99999, .1);
+    
     delete player;
 }
 
@@ -187,7 +233,7 @@ TEST(CharacterDataTests, testAddLevelMin){
 //     delete player;
 // }
 
-int main(int argc, char **argv) {
-  ::testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
-}
+// int main(int argc, char **argv) {
+//   ::testing::InitGoogleTest(&argc, argv);
+//   return RUN_ALL_TESTS();
+// }

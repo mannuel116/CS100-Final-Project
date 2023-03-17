@@ -6,22 +6,6 @@
 using namespace std;
 
 /*
-    Weapon/Item Class
-*/
-TEST(WeaponTests, testWeaponConstructor){
-    string name = "Cat";
-    string description = "Saimese kitty that knows Wing Chun.";
-
-    Weapon *weapon = new Weapon(name, description, (float)9999.9, (float)1.0);
-    ASSERT_NEAR(weapon->CriticalDamage(), 1, .1);
-    ASSERT_NEAR(weapon->Damage(), 9999.9, .1);
-    ASSERT_TRUE(weapon->Name() == name);
-    ASSERT_TRUE(weapon->Description() == description);
-
-    delete weapon;
-}
-
-/*
     Combat Class
 */
 TEST(CombatTests, testCombatFatal){
@@ -62,7 +46,7 @@ TEST(CombatTests, testCombatNonFatal){
   delete ofMassDestruction;
 }
 
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+// int main(int argc, char **argv) {
+//     ::testing::InitGoogleTest(&argc, argv);
+//     return RUN_ALL_TESTS();
+// }
