@@ -24,9 +24,13 @@ Game::Game() {
    inv = new Inventory();
 }
 
-void Game::runGame() {
+bool Game::runGame() {
     prologue();
-    floorOne();
+    if (!floorOne()) return false;
+    else if (!(floorTwo())) return false;
+    else if (!(floorThree())) return false;
+    epilogue();
+    return true;
 }
 
 void Game::prologue() {
@@ -49,7 +53,22 @@ bool Game::floorOne() {
 
 bool Game::floorTwo() {
     story->actFour(player);
-    return false;
+    if (combat("Arasaka Chrome Jockie", 2, 6, 5, genEnemXP(), 30, 30)) loot();
+    else return false;
+    if (combat("Arasaka Armored Enforcer", 3, 4, 4, genEnemXP(), 40, 10)) loot();
+    else return false;
+    story->actFive(player);
+    return true;
+}
+
+bool Game::floorThree() {
+    story->actSix();
+    if (!combat("Adam Smasher", 5, 9, 7, 0, 70, 30)) return false;
+    return true;
+}
+
+void Game::epilogue() {
+    story->actSeven(player);
 }
 
 
@@ -77,19 +96,15 @@ bool Game::isDead(Enemy *enemy) {
 
 void Game::levelUp(Enemy *enemy) {
     if (player->AddExperience(enemy->getExp())) {
+        cout << "---------------LEVEL UP-----------------\n";
         string tempLvl;
         CreateChar *temp = new CreateChar();
-        cout << "PREVIOUS STATSSSSS\n"
+        cout << "PREVIOUS STATS\n"
              << "VIT " << player->Vitality() << "\n"
              << "AGIL " << player->Agility() << "\n"
              << "STR " << player->Strength() << "\n"
              << "LUCK " << player->Luck() << "\n";
         temp->setStats(tempLvl,true,player,inv);  
-        cout << "NENWWEWEWEWEWEWWEWEWE STATSSSSS\n"
-             << "VIT " << player->Vitality() << "\n"
-             << "AGIL " << player->Agility() << "\n"
-             << "STR " << player->Strength() << "\n"
-             << "LUCK " << player->Luck() << "\n";
         delete temp;
     }
     delete enemy;

@@ -149,12 +149,12 @@ void Story::actFour(Character *p) {
     cout << "\"Well " << p->Name() << ", you're probably wondering why we're here\""; newLine();
     cout << "\"Does the name David Martinez sound familiar to you\""; newLine();
     cout << "That's that Edgerunner that the whole city was talking about not too long ago"; newLine();
-    cout << "\"Well you should cuz he's the newest addition to the ever pleasant group of Night City legends\""; newLine();
+    cout << "\"Well it should cuz he's the newest addition to the ever pleasant group of Night City legends\""; newLine();
     cout << "You wonder what all this info has to do with the job"; newLine();
     cout << "\"And he was recently shot dead in the head by none other than the Weapon of Arasaka and fellow Night City legend, Adam Smasher\""; newLine();
     cout << "Oh"; newLine();
-    cout << "\"Poor Falco was there when it all went down too\""; 
-    cout << "\"Now the reason we're here is because despite being dead, good ol' Saka ain't through with David\"";
+    cout << "\"Poor Falco was there when it all went down too\""; newLine() ;
+    cout << "\"Now the reason we're here is because despite being dead, good ol' Saka ain't through with David\""; newLine();
     cout << "\"We're gonna make sure they are\""; newLine();
     cout << "Johnny sees an even more bewildered look appear on your face and realizes that might not have been the clearest of explanations"; newLine();
     cout << "But"; newLine();
@@ -177,12 +177,12 @@ void Story::actFive(Character *p) {
     cout << "You all begin to walk through the door"; newLine();
     cout << "Johnny turns to you"; newLine();
     cout << "\"Well nows a good a time as any\""; newLine();
-    cout << "\"" << p->Name() << "\""; newLine(); newLine();
+    cout << "\"" << p->Name() << "\""; newLine(); 
     cout << "\"Do you know what a construct is?\""; newLine();
     cout << "\"It is the consciousness of an individual which has been copied into coding form\""; newLine();
     cout << "\"They're created using a program called Soulkiller, an-\""; newLine();
     cout << "\"It's basically a digital copy of yourself and people believe that it's the sure shot method of obtaining immortality\""; newLine();
-    cout << "\"They're wrong\n"; newLine();
+    cout << "\"They're wrong"; newLine();
     cout << "\"...\""; newLine();
     cout << "\"I would know\""; newLine();
     cout << "Does he mean.."; newLine();
@@ -204,5 +204,54 @@ void Story::actFive(Character *p) {
     cout << "It's David"; newLine();
     cout << "Johnny said he had died but his body seems perfectly intact"; newLine();
     cout << "Is this really him?"; newLine();
+    cout << "\"Falco start prepping him for transfer\""; newLine();
+    cout << "\"We're not gonna wanna be here for much longer\""; newLine();
+    cout << "Almost as if the universe heard Johnny, the door you entered from begins closing"; newLine();
+    cout << "Now the only source of light is the capsule in front of you"; newLine();
+    cout << "And an ominous dark red approaching in the distance"; newLine();
+    cout << "Johnny's face turns stonecold"; newLine();
+    cout << "\"He's here\""; newLine();
 }
 
+void Story::actSix() {
+    cout << "Before he's able to utter another word, Adam Smasher charges through the darkness and pummels Johnny"; newLine();
+    cout << "\"I see you're still alive Johnny\""; newLine();
+    cout << "\"After all these years you still cling to your old ways\""; newLine();
+    cout << "\"We won't fail again with David\""; newLine();
+    cout << "Smasher aims at Johnny"; newLine();
+    cout << "You empty a fast one straight into his head to get his attention"; newLine();
+    cout << "Though since his skull is completely encased in metal, it merely ricochets off"; newLine();
+    cout << "\"And who is this?\""; newLine();
+    cout << "\"Someone else you've brought along to die?\""; newLine();
+    cout << "\"For your sake\""; newLine();
+    cout << "\"I won't make this quick\""; newLine();
+}
+void Story::actSeven(Character *p) {
+    cout << "\"How could I...\""; newLine();
+    cout << "Reality itself said today was your day because somehow, you beat Adam Smasher"; newLine();
+    cout << "You were able to pierce through his high tech Arasaka armor and deal enough damamge to knock him down on his knees"; newLine();
+    cout << "While you were busy with Smasher, Falco tended to Johnny AND got the David's construct ready for transport"; newLine();
+    cout << "He really is something special ain't he";  newLine();
+    cout << "The three of you, well four now, head back out the door and onto the Tower rooftops"; newLine();
+    cout << "When you arrive, there's already an AV waiting for you"; newLine();
+    cout << "A white haired girl calls from the AV"; newLine();
+    cout << "\"Falco!\""; newLine();
+    cout << "\"Lucy\""; newLine();
+    cout << "\"We got him\""; newLine();
+    cout << "You, Johnny, and Falco load David onto the AV"; newLine();
+    cout << "The job was a success"; newLine();
+    cout << "Arasaka was nothing you couldn't handle"; newLine();
+    cout << "\"SILVERHANDDD\""; newLine();
+    cout << "Despite relinquishing part of your humanity to acquire cybernetic enhancements, you've never felt more terrified"; newLine();
+    cout << "More human"; newLine();
+    cout << "Than you do right now hearing that scream"; newLine();
+    cout << "It's Smasher"; newLine();
+    cout << "Instead of trying your luck, you all board the AV and it begins to ascend"; newLine();
+    cout << "\"Come back and learn that noone beats me!\""; newLine();
+    cout << "Smasher looks desperate to fight again"; newLine();
+    cout << "Johnny looks at you"; newLine();
+    cout << "And with a smirk on his face, yells back at Smasher"; newLine();
+    cout << "I know you hate losing bub but you'd do well to remeber this"; newLine();
+    cout << "You got your #$% kicked by an Edgerunner today\""; newLine();
+    cout << "\"And their name is " << p->Name() << "!\""; newLine();
+}

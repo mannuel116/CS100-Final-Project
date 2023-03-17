@@ -15,6 +15,9 @@ class Story {
         void actThree(Character *);
         void breakOne();
         void actFour(Character *);
+        void actFive(Character *);
+        void actSix();
+        void actSeven(Character *);
 };
 
 #endif

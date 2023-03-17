@@ -83,9 +83,7 @@ class CharacterData {
             this->currentHealth = max(_data.maxHealth, 0.0);
             this->maxHealth = max(_data.maxHealth, 0.0);
             //this->armor = max(_data.armor, 0.0);
-            cout << "BEFOREREOREROEREO   " << this->currentHealth << " ||||| " << this->maxHealth << "\n";
             data = { this->level, this->currentHealth, this->maxHealth, this->experience};
-            cout << "AFTERERERERRERERE   " << this->currentHealth << " ||||| " << this->maxHealth << "\n";
         }
         CharacterData( int _level = 0, double _maxHealth = 0.0, double _experience = 0.0){
             this->level = max(_level, 0);

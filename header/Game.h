@@ -14,11 +14,11 @@ class Game {
        Inventory *inv;
     public:
         Game();
-        void runGame();
+        bool runGame();
         void prologue();
         bool floorOne();
         bool floorTwo();
-        void floorThree();
+        bool floorThree();
         void epilogue();
         void setChar();
         double genEnemXP();

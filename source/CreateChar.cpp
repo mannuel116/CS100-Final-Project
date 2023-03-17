@@ -9,12 +9,13 @@ Character *CreateChar::makeChar(Inventory *inv) {
     string name = "", origin = "", input = "", stats = "", done = "000";
     bool finish = false;
     do {
-        cout << "-----------CHARACTER CREATION-----------\n"
+        cout << "\n\n\n\n\n\n\n\n-----------CHARACTER CREATION-----------\n"
              << "1. Enter name\n"
              << "2. Allocate stats\n"
              << "3. Choose origin\n"
              << "4. Finish\n";
         cin  >> input;
+        cout << "\n\n\n\n\n\n\n\n";
         if (input == "1") {setName(name); done[0] = '1';}
         else if (input == "2") {setStats(stats, false); done[1] = '1';}
         else if (input == "3") {setOrigin(origin); done[2] = '1';}
@@ -30,14 +31,11 @@ Character *CreateChar::makeChar(Inventory *inv) {
         else if (stats[i] == 'A') statVals[2]++;
         else if (stats[i] == 'L') statVals[3]++;
     }
-    cout << "VITALITY IS " << statVals[0] << "\n";
     characterStats tempStats = {statVals[0],statVals[1],statVals[2],statVals[3]};
     characterData tempData = {1, (double)statVals[0], (double)statVals[0], 0};
     Character *player = (origin == "1")? new Character(name, Character::Path::Corporate, tempData, tempStats) : (origin == "2")? new Character(name, Character::Path::Nomad, tempData, tempStats)
              : new Character(name, Character::Path::Street_Kid, tempData, tempStats);
     inv->setInvSize(player->Strength());
-    cout << "HP IS " << player->CurrentHealth() << "\n";
-    cout << "LEVEL IS  " << player->Level() << "\n";
     return player;
 }
 
@@ -84,6 +82,7 @@ void CreateChar::setStats(string &stats, bool lvlUp, Character *player, Inventor
              << "4. Luck: Determines crit chance during attacks\n"
              << "Enter stat number to allocate point\n";
         cin  >> input;
+        cout << "\n\n\n\n\n\n\n\n\n";
         if (input == "1") {stats += "V"; statCnt--;}
         else if (input == "2") {stats += "A"; statCnt--;}
         else if (input == "3") {stats += "S"; statCnt--;}
