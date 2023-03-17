@@ -26,19 +26,18 @@ class Enemy : public EnemyStats, public EnemyData {
         Weapon enemyWeapon;
 
     public:
-        Enemy(string enemyName = "name", int _vitality = 0, int _agility = 0, int _luck = 0, float startingHealth = 100, float xpDrop = 0) : EnemyStats(_vitality, _agility, _luck), enemyWeapon("name", "description", 0, 0)
+        Enemy(string enemyName, int _vitality = 0, int _agility = 0, int _luck = 0, float xpDrop = 0) : EnemyStats(_vitality, _agility, _luck)
         {
             setName(enemyName);
-            SetMaxHealth(startingHealth + (100 * Vitality()));
-            SetCurrentHealth(startingHealth);
+            SetMaxHealth(_vitality*100);
+            SetCurrentHealth(_vitality*100);
             setExp(xpDrop);
         }
-        
-        void equipWeapon(Weapon _weapon);
-        Weapon getWeapon();
+        ~Enemy() {
+            delete weapon;
+        }
+        void equipWeapon(float weaponDMG, float weaponCrit);
         Weapon *weapon;
-        
-
 };
 
 

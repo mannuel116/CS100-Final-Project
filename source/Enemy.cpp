@@ -1,14 +1,8 @@
 #include "../header/Enemy.h"
 #include "../header/Weapon.h"
-#include "../header/Item.h"
 
 using namespace std;
 
-void Enemy::equipWeapon(Weapon _weapon){
-    this->enemyWeapon = _weapon;
+void Enemy::equipWeapon(float weaponDMG, float weaponCrit){
+    weapon = new Weapon("Axe", "A crude axe with decades of use.", weaponDMG, weaponCrit);
 }
-Weapon Enemy::getWeapon(){
-    return this->enemyWeapon;
-}
-
-

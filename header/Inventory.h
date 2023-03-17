@@ -1,28 +1,31 @@
-/*
-    Author: Justin Dang
-    >--------------------------------------------
-    Need help?
-        -> Refer to my test cases on some examples of how to use this class.
-    >--------------------------------------------
-    FUNCTION:
-        -> Stores items(potions, weapons)
-    >--------------------------------------------
-    Documentation:
-        ->
-    >--------------------------------------------
-*/
 #ifndef INVENTORY_H
 #define INVENTORY_H
-class Weapon;
-class Consumable;
+
+#include <iostream>
+#include "Consumable.h"
+#include "Weapon.h"
+#include "Character.h"
 #include <vector>
 
-using namespace std;
-
-class Inventory{
-    protected:
-        vector<Weapon> weapon_Inventory;
-        vector<Consumable> consumable_Inventory;
+class Inventory {
+    private:
+        vector<Consumable *> consumables;
+        vector<Weapon *> weapons;
+        int invSize;
+        int itemCnt;
+    public:
+        Inventory();
+        void invMenu(Character *);
+        void setInvSize(int);
+        void getWep(int, Character *);
+        void printCons(Character *);
+        void printWep(Character *);
+        void useCons(int, Character *);
+        void equipWep(int, Character *);
+        void addWep(Weapon *);
+        void addCons(Consumable *);
+        bool full();
+        ~Inventory();
 };
 
 #endif

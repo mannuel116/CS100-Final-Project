@@ -8,13 +8,9 @@ using namespace std;
 class Menu{
     private:
         char menuInput;
-        bool gameState;
     public:
-        void pausemenu();
-        void menuDescision();
+        bool pauseMenu();
         void invalidInput();
-        void processMenuDescision();
-
 };
 
 #endif

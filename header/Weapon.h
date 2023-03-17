@@ -1,5 +1,5 @@
-#ifndef WEAPONS_H
-#define WEAPONS_H
+#ifndef WEAPON_H
+#define WEAPON_H
 
 #include "Item.h"
 #include <string>
@@ -10,8 +10,7 @@ class Weapon : public Item {
     private:
         float damage, criticalDamage;
     public:
-        Weapon(string _name, string _description, float _damage, float _criticalDamage) : 
-                Item(_name, _description) {
+        Weapon(string _name, string _description, float _damage, float _criticalDamage) : Item(_name, _description) {
             this->damage = _damage;
             this->criticalDamage = _criticalDamage;
         }

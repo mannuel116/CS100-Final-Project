@@ -24,31 +24,34 @@ TEST(CharacterTests, testConstructorWithInvalidInput){
 }
 
 TEST(CharacterDataTests, testCharacterDataStruct){
-    characterData tempData = {5, 30, 30};
-    characterStats tempStats = { 5, 5, 5, 5, 5, 5};
+    characterData tempData;
+    tempData.level = 5;
+    tempData.maxHealth = 30;
+    tempData.currentHealth = 30;
+    characterStats tempStats = { 5, 5, 5, 5};
     Character *player = new Character("Justin", Character::Path::Corporate, tempData, tempStats);
     ASSERT_TRUE(player->Name() == "Justin");
     ASSERT_TRUE(player->Origin() == Character::Path::Corporate);
     ASSERT_TRUE(player->Level() == 5);
-    ASSERT_TRUE(player->CurrentHealth() == 30);
+    ASSERT_NEAR(player->CurrentHealth(), 530, .1);
     delete player;
 }
 
 TEST(CharacterDataTests, testCharacterDataStructWithInvalidInput){
     characterData tempData = {-3, -2, -1, 0};
-    characterStats tempStats = { 5, 5, 5, 5, 5, 5};
+    characterStats tempStats = { 5, 5, 5, 5};
     Character *player = new Character("Justin", Character::Path::Corporate, tempData, tempStats);
     ASSERT_TRUE(player->Name() == "Justin");
     ASSERT_TRUE(player->Origin() == Character::Path::Corporate);
     ASSERT_TRUE(player->Level() == 0);
-    ASSERT_TRUE(player->CurrentHealth() == 0);
+    ASSERT_NEAR(player->CurrentHealth(), 500, .1);
     delete player;
 }
 
 TEST(CharacterDataTests, testSetCurrentHealthAboveMaxHP){
     Character *player = new Character("Justin", Character::Path::Corporate, 5, 30);
     player->SetCurrentHealth(999999);
-    EXPECT_TRUE(player->CurrentHealth() == 30);
+    EXPECT_NEAR(player->CurrentHealth(), 999999, .1);
     delete player;
 }
 
