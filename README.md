@@ -1,5 +1,5 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=9904903&assignment_repo_type=AssignmentRepo)
-# Night City Rogue-Like
+# Night City
  
   Authors: \<[Justin Dang](https://github.com/JustinBLDang)\>
  \<[Steven Wang](https://github.com/mannuel116)\>
@@ -21,9 +21,10 @@
     * In this project,  we will be developing a text-based rpg that incorporates narrative with strategy by pushing the player through difficult scenarios that build their character’s story. We will use text-based input for all controls, similar to inputting commands in a console, meaning the only peripherals a player needs is a keyboard. In the end, the goal of the player should be to make it as far as possible or toward a satisfactory ending for their playthrough. 
 
   * What are the features that the project provides?
-    * Narrative
-        * Scenarios that the player will encounter and make a decision in
-        * Character selection
+    * Story Telling
+    * Combat Events
+    * Loot Events     
+    * Character Creation
     * Data Storage:
         * Specific stats for the character
         * Inventory:
@@ -165,7 +166,7 @@ The *Enemy* class is where all instances of enemies in our game will be created 
  > ![End](Documentation/end.png)
  > ![Valgrind](Documentation/valgrind.png)
  ## Installation/Usage
- > Instructions on installing and running your application
+ > Simply pull from main, run cmake . and make, and run ./runPrgm
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+ > We tested our program by creating unit tests for the classes and functions we created. Admittedly, some of our test became ineffective upon making changes to our classes and we were unable to correct them due to a lack of time. Beyond unit testing, we also used Valgrind to ensure no memory leaks occured in our program and are happy to report that none do.
  
