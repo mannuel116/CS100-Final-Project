@@ -153,13 +153,6 @@ The *Enemy* class is where all instances of enemies in our game will be created 
 3. Interface-Segregation
 * The issue that was resolved with the addition of this principle wasn't clear to us at first, but as we began developing our program further we quickly realized how we would have a violation of this principle and how to fix it. Initially we were going to have the *Enemy* and *Character* class both inherit from a *EntityData* and *EntityStats* class. The issue with this was that the enemy only needed three of the six stats that the player would have and thus would be inheriting several data members and member functions that it woulnd't be using. To fix this, we created separate stat classes for the character and enemy so that both only receive the data and functions they require.
  
- > ## Final deliverable
- > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few question to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
- 
  ## Screenshots
  > ![Path](Documentation/path.png)
  > ![Combat](Documentation/combat1.png)
