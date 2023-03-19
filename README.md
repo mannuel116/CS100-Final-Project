@@ -159,7 +159,7 @@ The *Enemy* class is where all instances of enemies in our game will be created 
  > ![End](Documentation/end.png)
  > ![Valgrind](Documentation/valgrind.png)
  ## Installation/Usage
- > Simply pull from main, run cmake . and make, and run ./runPrgm
+ > Simply pull from main, cd into the source file run cmake . and then make, and run ./runPrgm
  ## Testing
  > We tested our program by creating unit tests for the classes and functions we created. Admittedly, some of our test became ineffective upon making changes to our classes and we were unable to correct them due to a lack of time. Beyond unit testing, we also used Valgrind to ensure no memory leaks occured in our program and are happy to report that none do.
  
