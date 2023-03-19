@@ -12,6 +12,6 @@ TEST(WeaponTest, DamageTest){
 
 TEST(WeaponTest, CritTest){
     Weapon *weapon = new Weapon("name", "descrp", 20, 10);
-    EXPECT_EQ(weapon->Crit(),10);
+    EXPECT_EQ(weapon->CriticalDamage(),10);
     delete weapon;
 }

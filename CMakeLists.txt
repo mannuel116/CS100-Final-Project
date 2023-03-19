@@ -42,7 +42,7 @@ endif ()
 
 set(SOURCE_FILES source/Character.cpp source/CharacterData.cpp source/CharacterStats.cpp source/Combat.cpp source/Weapon.cpp source/Item.cpp source/Enemy.cpp source/EnemyData.cpp source/EnemyStats.cpp source/Consumable.cpp source/Inventory.cpp)
 
-set(TEST_FILES test/CharacterStatsTest.cpp test/CharacterTest.cpp test/CombatTest.cpp test/InventoryTest.cpp test/ItemsTest.cpp test/MenuTest.cpp test/WeaponTest.cpp)
+set(TEST_FILES test/ConsumableTest.cpp test/EnemyTest.cpp test/CharacterStatsTest.cpp test/CharacterTest.cpp test/CombatTest.cpp test/ItemsTest.cpp test/WeaponTest.cpp)
 add_executable(test ${TEST_FILES} ${SOURCE_FILES})
 
 target_link_libraries(test gtest gtest_main)

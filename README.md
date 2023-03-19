@@ -1,5 +1,5 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=9904903&assignment_repo_type=AssignmentRepo)
-# Night City Rogue-Like
+# Night City
  
   Authors: \<[Justin Dang](https://github.com/JustinBLDang)\>
  \<[Steven Wang](https://github.com/mannuel116)\>
@@ -21,9 +21,10 @@
     * In this project,  we will be developing a text-based rpg that incorporates narrative with strategy by pushing the player through difficult scenarios that build their character’s story. We will use text-based input for all controls, similar to inputting commands in a console, meaning the only peripherals a player needs is a keyboard. In the end, the goal of the player should be to make it as far as possible or toward a satisfactory ending for their playthrough. 
 
   * What are the features that the project provides?
-    * Narrative
-        * Scenarios that the player will encounter and make a decision in
-        * Character selection
+    * Story Telling
+    * Combat Events
+    * Loot Events     
+    * Character Creation
     * Data Storage:
         * Specific stats for the character
         * Inventory:
@@ -152,17 +153,18 @@ The *Enemy* class is where all instances of enemies in our game will be created 
 3. Interface-Segregation
 * The issue that was resolved with the addition of this principle wasn't clear to us at first, but as we began developing our program further we quickly realized how we would have a violation of this principle and how to fix it. Initially we were going to have the *Enemy* and *Character* class both inherit from a *EntityData* and *EntityStats* class. The issue with this was that the enemy only needed three of the six stats that the player would have and thus would be inheriting several data members and member functions that it woulnd't be using. To fix this, we created separate stat classes for the character and enemy so that both only receive the data and functions they require.
  
- > ## Final deliverable
- > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few question to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
- 
  ## Screenshots
- > Screenshots of the input/output after running your application
+ > ![Path](Documentation/path.png)
+ > ![Combat](Documentation/combat1.png)
+ > ![End](Documentation/end.png)
+ > ![Valgrind](Documentation/valgrind.png)
  ## Installation/Usage
- > Instructions on installing and running your application
+ > Simply pull from main, run cmake . and make, and run ./runPrgm
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+ > We tested our program by creating unit tests for the classes and functions we created. Admittedly, some of our test became ineffective upon making changes to our classes and we were unable to correct them due to a lack of time. Beyond unit testing, we also used Valgrind to ensure no memory leaks occured in our program and are happy to report that none do.
  
+<img width="534" alt="Test1" src="https://user-images.githubusercontent.com/57662868/226191203-67abeb5e-fcb8-470b-bde5-18c350775a20.png">
+<img width="512" alt="Test2" src="https://user-images.githubusercontent.com/57662868/226191207-86083475-4a7e-4683-b92a-abfba0c34a98.png">
+<img width="446" alt="Test3" src="https://user-images.githubusercontent.com/57662868/226191221-2bc3d0a7-7e91-49de-8509-d73b84bedc18.png">
+<img width="327" alt="test4" src="https://user-images.githubusercontent.com/57662868/226191227-63eca0ee-5740-47fd-9a3a-ceadf9d12a69.png">
+
