@@ -163,5 +163,8 @@ The *Enemy* class is where all instances of enemies in our game will be created 
  ## Testing
  > We tested our program by creating unit tests for the classes and functions we created. Admittedly, some of our test became ineffective upon making changes to our classes and we were unable to correct them due to a lack of time. Beyond unit testing, we also used Valgrind to ensure no memory leaks occured in our program and are happy to report that none do.
  
- ![Test cases for project](https://user-images.githubusercontent.com/57662868/226069557-7dea1e5a-aa6c-4335-b394-6cc2f94b929e.png)
+<img width="534" alt="Test1" src="https://user-images.githubusercontent.com/57662868/226191203-67abeb5e-fcb8-470b-bde5-18c350775a20.png">
+<img width="512" alt="Test2" src="https://user-images.githubusercontent.com/57662868/226191207-86083475-4a7e-4683-b92a-abfba0c34a98.png">
+<img width="446" alt="Test3" src="https://user-images.githubusercontent.com/57662868/226191221-2bc3d0a7-7e91-49de-8509-d73b84bedc18.png">
+<img width="327" alt="test4" src="https://user-images.githubusercontent.com/57662868/226191227-63eca0ee-5740-47fd-9a3a-ceadf9d12a69.png">
 
